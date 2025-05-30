@@ -56,7 +56,7 @@ body {
 .hero-content {
   position: relative;
   padding: 40px 20px;
-  margin-top: 70px; /* Añadido para separar del header */
+  margin-top: 250px;
   text-align: center;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
