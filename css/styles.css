@@ -213,3 +213,23 @@ footer {
     height: 150px;
   }
 }
+
+.hero-content {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Mejora legibilidad */
+  min-height: 400px; /* Altura mínima para mostrar el fondo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content .cta-button {
+  position: relative;
+  z-index: 1;
+}
