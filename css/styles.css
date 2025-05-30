@@ -56,6 +56,7 @@ body {
 .hero-content {
   position: relative;
   padding: 40px 20px;
+  margin-top: 70px; /* Añadido para separar del header */
   text-align: center;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -99,7 +100,7 @@ body {
 /* Container */
 .container {
   max-width: 1200px;
-  margin: 80px auto 20px;
+  margin: 20px auto;
   padding: 20px;
 }
 
@@ -161,7 +162,9 @@ body {
 
 .event-card img {
   width: 100%;
-  height: auto;
+  max-width: 400px; /* Limita el tamaño máximo */
+  max-height: 200px; /* Reduce la altura */
+  object-fit: cover; /* Mantiene proporción */
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -298,6 +301,10 @@ footer p {
     margin: 10px 0;
   }
 
+  .hero-content {
+    margin-top: 100px; /* Más espacio en móviles debido a navbar */
+  }
+
   .hero-content h1 {
     font-size: 28px;
   }
@@ -308,5 +315,9 @@ footer p {
 
   .content-section h2 {
     font-size: 24px;
+  }
+
+  .event-card img {
+    max-height: 150px; /* Más pequeño en móviles */
   }
 }
