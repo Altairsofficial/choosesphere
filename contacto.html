@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Último Mensaje - ChooseSphere</title>
+  <title>Contacto - ChooseSphere</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"></script>
@@ -22,28 +22,31 @@
     </ul>
   </nav>
   <header>
-    <h1>El Último Mensaje</h1>
-    <p>Un astronauta en una estación espacial. ¿Confiarás en la IA?</p>
+    <div class="hero-content">
+      <h1>Contáctanos</h1>
+      <p>Estamos aquí para ayudarte. Envíanos tus dudas o sugerencias.</p>
+    </div>
   </header>
   <div class="container">
     <div class="ad-banner">
       <p>[Espacio para Google Ads - Banner 300x250]</p>
     </div>
     <section class="content-section">
-      <div id="video-story">
-        <h2>Escena 1</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder1" frameborder="0" allowfullscreen></iframe>
-        <p>Recibes un mensaje: "No confíes en la IA". ¿Qué haces?</p>
-        <div class="choices">
-          <button onclick="playVideo('https://www.youtube.com/embed/placeholder2')">Responder al mensaje</button>
-          <button onclick="playVideo('https://www.youtube.com/embed/placeholder3')">Apagar la comunicación</button>
-        </div>
-      </div>
+      <h2>Ponte en contacto</h2>
+      <form action="https://formspree.io/f/tu-id-de-formspree" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit" class="cta-button">Enviar</button>
+      </form>
+      <p>O contáctanos directamente en: <a href="mailto:contact@choosesphere.com">contact@choosesphere.com</a></p>
     </section>
   </div>
   <footer>
     <p>© 2025 ChooseSphere. Todos los derechos reservados.</p>
   </footer>
-  <script src="js/script.js"></script>
 </body>
 </html>
