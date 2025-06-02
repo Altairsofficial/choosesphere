@@ -23,14 +23,14 @@ body {
   min-height: 100vh;
 }
 
-/* Overlay para toda la página */
+/* Overlay uniforme para toda la página */
 body::before {
   content: '';
-  position: absolute;
+  position: fixed; /* Cambiado a fixed para cubrir toda la viewport */
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%; /* Usamos height: 100% con fixed para cubrir toda la pantalla */
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
@@ -38,21 +38,21 @@ body::before {
 /* Ensure content is above overlay */
 .navbar, .hero-content, .container, footer {
   position: relative;
-  z-index: 2; /* Aumentado para para superar el overlay */
+  z-index: 2; /* Por encima del overlay */
 }
 
 /* Navbar */
 .navbar {
   background-color: #1a3c34;
   color: #fff;
-  padding: 15pxpx 20px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* Muy por encima para navbar fijo */
 }
 
 .navbar .logo {
@@ -88,11 +88,11 @@ body::before {
 
 /* Hero Section */
 .hero-content {
-  padding: 40px;
-  margin-top: 70px; /* Ajustado para .navbar fixed */
+  padding: 40px 20px;
+  margin-top: 80px; /* Ajustado para compensar .navbar y evitar huecos */
   text-align: center;
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0,0.0.7);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -318,7 +318,7 @@ footer p {
   }
 
   .hero-content {
-    margin-top: 100px;
+    margin-top: 120px; /* Ajustado para móvil */
   }
 
   .hero-content h1 {
