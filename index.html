@@ -11,6 +11,8 @@
   <meta name="google-site-verification" content="2-JIGjoXUBLzMbuWcyBC4NmOvZrXEYFWjJO7bVs5VHw" /">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5334889181575788"></script>
 </head>
 <body>
@@ -32,7 +34,7 @@
   </header>
   <div class="curve-divider">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#1a3c34"></path>
+      <path d="M0,0 C480,160 960,160 1440,0 L1440,120 L0,120 Z" fill="#1a3c34"></path>
     </svg>
   </div>
   <main>
@@ -42,25 +44,36 @@
       </div>
       <section class="content-section" id="historias">
         <h2>Explora nuestras historias</h2>
-        <div class="content-grid">
-          <div class="content-item">
-            <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="Faro en costa rocosa">
-            <h3>El Faro Encantado</h3>
-            <p>Un misterio en una isla. ¿Entrarás al faro o buscarás otro camino?</p>
-            <a href="faro.html" class="cta-button">Jugar ahora</a>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="content-item">
+                <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="Faro en costa rocosa">
+                <h3>El Faro Encantado</h3>
+                <p>Un misterio en una isla. ¿Entrarás al faro o buscarás otro camino?</p>
+                <a href="faro.html" class="cta-button">Jugar ahora</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="content-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="El Último Mensaje">
+                <h3>El Último Mensaje</h3>
+                <p>Un astronauta recibe un mensaje críptico. ¿Confiarás en la IA?</p>
+                <a href="mensaje.html" class="cta-button">Ver ahora</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="content-item">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="La Ciudad Perdida">
+                <h3>La Ciudad Perdida</h3>
+                <p>Explora ruinas antiguas. ¿Descubrirás el secreto o quedarás atrapado?</p>
+                <a href="ciudad.html" class="cta-button">Jugar ahora</a>
+              </div>
+            </div>
           </div>
-          <div class="content-item">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="El Último Mensaje">
-            <h3>El Último Mensaje</h3>
-            <p>Un astronauta recibe un mensaje críptico. ¿Confiarás en la IA?</p>
-            <a href="mensaje.html" class="cta-button">Ver ahora</a>
-          </div>
-          <div class="content-item">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80" alt="La Ciudad Perdida">
-            <h3>La Ciudad Perdida</h3>
-            <p>Explora ruinas antiguas. ¿Descubrirás el secreto o quedarás atrapado?</p>
-            <a href="ciudad.html" class="cta-button">Jugar ahora</a>
-          </div>
+          <!-- Navegación -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </section>
       <hr class="section-divider">
@@ -108,5 +121,7 @@
     <p>© 2025 ChooseSphere. Todos los derechos reservados.</p>
   </footer>
   <script src="js/script.js"></script>
+  <!-- Swiper.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>

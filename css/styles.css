@@ -65,12 +65,12 @@ header::before {
 
 .hero-content h1 span:first-child {
   display: block;
-  font-size: 56px; /* Igual que h1 */
+  font-size: 56px;
 }
 
 .hero-content h1 span:last-child {
   display: block;
-  font-size: 48px; /* Ligeramente más pequeño */
+  font-size: 48px;
   margin-top: 10px;
 }
 
@@ -137,8 +137,9 @@ header::before {
 .curve-divider {
   position: relative;
   height: 120px;
-  z-index: 10; /* Más alto para visibilidad */
-  background: linear-gradient(to bottom, transparent, #000); /* Transición suave */
+  z-index: 10;
+  background: linear-gradient(to bottom, transparent, #141414);
+  border-top: 2px solid #f4c430; /* Para debugging */
 }
 
 .curve-divider svg {
@@ -184,20 +185,28 @@ main {
   text-transform: uppercase;
 }
 
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+/* Swiper Carousel */
+.swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: 320px; /* Ancho fijo para consistencia */
 }
 
 .content-item {
-  background-color: #141414; /* Más oscuro, como Netflix */
+  background-color: #141414;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid transparent;
+  width: 100%;
+  max-width: 320px;
 }
 
 .content-item:hover {
@@ -225,6 +234,18 @@ main {
   font-size: 16px;
   color: #ccc;
   margin-bottom: 15px;
+}
+
+/* Swiper Navigation */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f4c430;
+  --swiper-navigation-size: 30px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 30px;
 }
 
 /* Event Card */
@@ -443,5 +464,13 @@ footer p {
 
   .section-divider {
     margin: 40px auto;
+  }
+
+  .swiper-slide {
+    width: 280px;
+  }
+
+  .content-item {
+    max-width: 280px;
   }
 }
