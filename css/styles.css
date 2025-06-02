@@ -63,6 +63,17 @@ header::before {
   max-width: 800px;
 }
 
+.hero-content h1 span:first-child {
+  display: block;
+  font-size: 56px; /* Igual que h1 */
+}
+
+.hero-content h1 span:last-child {
+  display: block;
+  font-size: 48px; /* Ligeramente más pequeño */
+  margin-top: 10px;
+}
+
 .hero-content p {
   font-size: 24px;
   font-weight: 400;
@@ -125,9 +136,9 @@ header::before {
 /* Curve Divider (Arco) */
 .curve-divider {
   position: relative;
-  height: 100px;
-  z-index: 5;
-  background-color: #000;
+  height: 120px;
+  z-index: 10; /* Más alto para visibilidad */
+  background: linear-gradient(to bottom, transparent, #000); /* Transición suave */
 }
 
 .curve-divider svg {
@@ -136,6 +147,7 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10;
 }
 
 /* Main Content */
@@ -179,7 +191,7 @@ main {
 }
 
 .content-item {
-  background-color: #181818;
+  background-color: #141414; /* Más oscuro, como Netflix */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
@@ -217,7 +229,7 @@ main {
 
 /* Event Card */
 .event-card {
-  background-color: #181818;
+  background-color: #141414;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
@@ -260,7 +272,7 @@ main {
 }
 
 .plan {
-  background-color: #181818;
+  background-color: #141414;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
@@ -274,7 +286,7 @@ main {
 
 .plan.highlighted {
   border: 2px solid #f4c430;
-  background: linear-gradient(180deg, #1a3c34 0%, #181818 100%);
+  background: linear-gradient(180deg, #1a3c34 0%, #141414 100%);
 }
 
 .plan h3 {
@@ -332,7 +344,7 @@ main {
 
 /* Ad Banner */
 .ad-banner {
-  background-color: #181818;
+  background-color: #141414;
   padding: 15px;
   text-align: center;
   margin-bottom: 30px;
@@ -401,8 +413,12 @@ footer p {
     min-height: 400px;
   }
 
-  .hero-content h1 {
+  .hero-content h1 span:first-child {
     font-size: 36px;
+  }
+
+  .hero-content h1 span:last-child {
+    font-size: 32px;
   }
 
   .hero-content p {
@@ -422,7 +438,7 @@ footer p {
   }
 
   .curve-divider {
-    height: 60px;
+    height: 80px;
   }
 
   .section-divider {
