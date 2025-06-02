@@ -13,8 +13,8 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #fff; /* Texto blanco por defecto, como Netflix */
-  background-color: #000; /* Fondo negro por defecto */
+  color: #fff;
+  background-color: #000;
   position: relative;
   min-height: 100vh;
 }
@@ -36,19 +36,19 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Overlay solo en header */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 100px 20px;
-  margin-top: 80px; /* Espacio para .navbar */
+  padding: 120px 20px;
+  margin-top: 80px;
   text-align: center;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  min-height: 400px; /* Más alto, como Netflix */
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,13 +57,14 @@ header::before {
 
 .hero-content h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 48px; /* Más grande, como Netflix */
+  font-size: 56px;
   font-weight: 700;
   margin-bottom: 20px;
+  max-width: 800px;
 }
 
 .hero-content p {
-  font-size: 24px; /* Subtítulo más grande */
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 30px;
   max-width: 600px;
@@ -71,9 +72,8 @@ header::before {
 
 /* Navbar */
 .navbar {
-  background-color: rgba(26, 60, 52, 0.8); /* Semi-transparente, como Netflix */
-  color: #fff;
-  padding: 15px 20px;
+  background-color: rgba(26, 60, 52, 0.9);
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,14 +81,20 @@ header::before {
   width: 100%;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #1a3c34;
 }
 
 .navbar .logo {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px; /* Ligeramente más grande */
+  font-size: 32px;
   font-weight: 700;
   color: #fff;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .navbar .logo:hover {
@@ -101,173 +107,192 @@ header::before {
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #f4c430;
 }
 
-/* Curve Divider (Arco como Netflix) */
+/* Curve Divider (Arco) */
 .curve-divider {
   position: relative;
-  height: 50px;
-  background: #000; /* Fondo negro para continuidad */
-  z-index: 2;
-  overflow: hidden;
+  height: 100px;
+  z-index: 5;
+  background-color: #000;
 }
 
-.curve-divider::before {
-  content: '';
+.curve-divider svg {
   position: absolute;
-  top: -50px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background: #000;
-  border-radius: 0 0 50% 50% / 50px; /* Curva suave */
-  z-index: 2;
+  height: 100%;
 }
 
 /* Main Content */
 main {
-  background-color: #000; /* Fondo negro, como Netflix */
+  background-color: #000;
   color: #fff;
 }
 
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 /* Content Section */
 .content-section {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .content-section h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
-  color: #fff; /* Blanco para contraste */
-  margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 30px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .content-item {
-  background-color: #181818; /* Gris oscuro, como tarjetas de Netflix */
+  background-color: #181818;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .content-item:hover {
-  transform: translateY(-5px); /* Efecto hover como Netflix */
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  border-color: #f4c430;
 }
 
 .content-item img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
 .content-item h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   color: #fff;
   margin-bottom: 10px;
 }
 
 .content-item p {
   font-size: 16px;
-  color: #ccc; /* Gris claro para texto secundario */
+  color: #ccc;
   margin-bottom: 15px;
 }
 
 /* Event Card */
 .event-card {
   background-color: #181818;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.03);
 }
 
 .event-card img {
   width: 100%;
-  max-width: 400px;
-  max-height: 200px;
+  max-height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .event-card h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 22px;
+  font-size: 28px;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .event-card p {
-  font-size: 16px;
+  font-size: 18px;
   color: #ccc;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* Subscription Section */
 .subscription-plans {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .plan {
   background-color: #181818;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.plan:hover {
+  transform: scale(1.03);
 }
 
 .plan.highlighted {
   border: 2px solid #f4c430;
+  background: linear-gradient(180deg, #1a3c34 0%, #181818 100%);
 }
 
 .plan h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .plan p {
-  font-size: 18px;
+  font-size: 20px;
   color: #ccc;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .plan ul {
   list-style: none;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .plan ul li {
@@ -279,19 +304,20 @@ main {
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
   background-color: #f4c430;
   color: #1a3c34;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {
   background-color: #e0b028;
+  transform: translateY(-2px);
 }
 
 .cta-button.secondary {
@@ -301,15 +327,16 @@ main {
 
 .cta-button.secondary:hover {
   background-color: #444;
+  transform: translateY(-2px);
 }
 
 /* Ad Banner */
 .ad-banner {
   background-color: #181818;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  margin-bottom: 30px;
+  border-radius: 8px;
 }
 
 .ad-banner p {
@@ -320,32 +347,43 @@ main {
 /* Footer */
 footer {
   background-color: #000;
-  color: #fff;
+  color: #ccc;
   text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+  padding: 30px 20px;
+  margin-top: 60px;
 }
 
 footer p {
   font-size: 14px;
-  color: #ccc;
 }
 
 /* Section Divider */
 .section-divider {
   border: 0;
-  border-top: 1px solid #333; /* Más sutil, como Netflix */
+  border-top: 1px solid #333;
   height: 1px;
-  margin: 40px auto;
-  max-width: 1200px;
-  z-index: 1;
+  margin: 60px auto;
+  max-width: 1400px;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '◆';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f4c430;
+  font-size: 16px;
+  background-color: #000;
+  padding: 0 10px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 20px;
   }
 
   .nav-links {
@@ -358,12 +396,13 @@ footer p {
   }
 
   .hero-content {
-    padding: 60px 20px;
+    padding: 80px 20px;
     margin-top: 120px;
+    min-height: 400px;
   }
 
   .hero-content h1 {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .hero-content p {
@@ -371,25 +410,22 @@ footer p {
   }
 
   .content-section h2 {
-    font-size: 24px;
+    font-size: 28px;
+  }
+
+  .content-item img {
+    height: 150px;
   }
 
   .event-card img {
-    max-height: 150px;
-  }
-
-  .section-divider {
-    margin: 20px auto;
-    border-top: 1px solid #333;
+    max-height: 200px;
   }
 
   .curve-divider {
-    height: 30px;
+    height: 60px;
   }
 
-  .curve-divider::before {
-    top: -30px;
-    height: 60px;
-    border-radius: 0 0 50% 50% / 30px;
+  .section-divider {
+    margin: 40px auto;
   }
 }
