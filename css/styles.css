@@ -13,13 +13,31 @@ body {
   background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Efecto parallax */
+  background-attachment: fixed;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Ensure content is above overlay */
+.navbar, .hero-content, .container, footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* Navbar */
 .navbar {
-  background-color: rgba(26, 60, 52, 0.9); /* Overlay para legibilidad */
+  background-color: #1a3c34;
   color: #fff;
   padding: 15px 20px;
   display: flex;
@@ -35,6 +53,12 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .logo:hover {
+  color: #f4c430;
 }
 
 .nav-links {
@@ -58,38 +82,19 @@ body {
 
 /* Hero Section */
 .hero-content {
-  position: relative;
   padding: 40px 20px;
   margin-top: 70px;
   text-align: center;
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Aumentado para contraste */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
-.hero-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Overlay para mayor opacidad */
-  z-index: 0;
-}
-
-.hero-content h1,
-.hero-content p,
-.hero-content .cta-button {
-  position: relative;
-  z-index: 1;
-}
-
+/* Resto del CSS sin cambios */
 .hero-content h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 36px;
@@ -101,16 +106,14 @@ body {
   margin-bottom: 20px;
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* Overlay para legibilidad */
+  background-color: #fff;
   border-radius: 10px;
 }
 
-/* Content Section */
 .content-section {
   margin-bottom: 40px;
 }
@@ -157,7 +160,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Event Card */
 .event-card {
   background-color: #fff;
   padding: 20px;
@@ -188,7 +190,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Subscription Section */
 .subscription-plans {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -238,7 +239,6 @@ body {
   border-radius: 10px;
 }
 
-/* CTA Button */
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
@@ -264,7 +264,6 @@ body {
   background-color: #bbb;
 }
 
-/* Ad Banner */
 .ad-banner {
   background-color: #eee;
   padding: 10px;
@@ -278,9 +277,8 @@ body {
   color: #555;
 }
 
-/* Footer */
 footer {
-  background-color: rgba(26, 60, 52, 0.9); /* Overlay para legibilidad */
+  background-color: #1a3c34;
   color: #fff;
   text-align: center;
   padding: 15px 0;
