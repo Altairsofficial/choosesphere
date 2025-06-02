@@ -13,37 +13,65 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  color: #fff; /* Texto blanco por defecto, como Netflix */
+  background-color: #000; /* Fondo negro por defecto */
   position: relative;
   min-height: 100vh;
 }
 
-/* Overlay uniforme para toda la página */
-body::before {
+/* Header (Hero Section) */
+header {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+header::before {
   content: '';
-  position: fixed; /* Cambiado a fixed para cubrir toda la viewport */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Usamos height: 100% con fixed para cubrir toda la pantalla */
-  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay solo en header */
   z-index: 0;
 }
 
-/* Ensure content is above overlay */
-.navbar, .hero-content, .container, footer {
+.hero-content {
   position: relative;
-  z-index: 2; /* Por encima del overlay */
+  z-index: 2;
+  padding: 100px 20px;
+  margin-top: 80px; /* Espacio para .navbar */
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  min-height: 400px; /* Más alto, como Netflix */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px; /* Más grande, como Netflix */
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 24px; /* Subtítulo más grande */
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: 600px;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #1a3c34;
+  background-color: rgba(26, 60, 52, 0.8); /* Semi-transparente, como Netflix */
   color: #fff;
   padding: 15px 20px;
   display: flex;
@@ -52,13 +80,13 @@ body::before {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000; /* Muy por encima para navbar fijo */
+  z-index: 1000;
 }
 
 .navbar .logo {
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 28px; /* Ligeramente más grande */
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
 }
@@ -80,55 +108,57 @@ body::before {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .nav-links a:hover {
   color: #f4c430;
 }
 
-/* Hero Section */
-.hero-content {
-  padding: 40px 20px;
-  margin-top: 80px; /* Ajustado para compensar .navbar y evitar huecos */
-  text-align: center;
+/* Curve Divider (Arco como Netflix) */
+.curve-divider {
+  position: relative;
+  height: 50px;
+  background: #000; /* Fondo negro para continuidad */
+  z-index: 2;
+  overflow: hidden;
+}
+
+.curve-divider::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #000;
+  border-radius: 0 0 50% 50% / 50px; /* Curva suave */
+  z-index: 2;
+}
+
+/* Main Content */
+main {
+  background-color: #000; /* Fondo negro, como Netflix */
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 20px;
 }
 
 /* Container */
 .container {
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 /* Content Section */
 .content-section {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .content-section h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  color: #1a3c34;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff; /* Blanco para contraste */
   margin-bottom: 20px;
   text-align: center;
 }
@@ -140,11 +170,16 @@ body::before {
 }
 
 .content-item {
-  background-color: #fff;
+  background-color: #181818; /* Gris oscuro, como tarjetas de Netflix */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   text-align: center;
+  transition: transform 0.3s;
+}
+
+.content-item:hover {
+  transform: translateY(-5px); /* Efecto hover como Netflix */
 }
 
 .content-item img {
@@ -157,22 +192,22 @@ body::before {
 .content-item h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
-  color: #1a3c34;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .content-item p {
   font-size: 16px;
-  color: #555;
+  color: #ccc; /* Gris claro para texto secundario */
   margin-bottom: 15px;
 }
 
 /* Event Card */
 .event-card {
-  background-color: #fff;
+  background-color: #181818;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -188,13 +223,13 @@ body::before {
 .event-card h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
-  color: #1a3c34;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .event-card p {
   font-size: 16px;
-  color: #555;
+  color: #ccc;
   margin-bottom: 15px;
 }
 
@@ -206,10 +241,10 @@ body::before {
 }
 
 .plan {
-  background-color: #fff;
+  background-color: #181818;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -220,13 +255,13 @@ body::before {
 .plan h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
-  color: #1a3c34;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .plan p {
   font-size: 18px;
-  color: #555;
+  color: #ccc;
   margin-bottom: 15px;
 }
 
@@ -237,27 +272,21 @@ body::before {
 
 .plan ul li {
   font-size: 16px;
-  color: #555;
+  color: #ccc;
   margin-bottom: 10px;
-}
-
-.subscription-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-  border-radius: 10px;
 }
 
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: #f4c430;
   color: #1a3c34;
   text-decoration: none;
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
@@ -266,17 +295,17 @@ body::before {
 }
 
 .cta-button.secondary {
-  background-color: #ccc;
-  color: #333;
+  background-color: #333;
+  color: #fff;
 }
 
 .cta-button.secondary:hover {
-  background-color: #bbb;
+  background-color: #444;
 }
 
 /* Ad Banner */
 .ad-banner {
-  background-color: #eee;
+  background-color: #181818;
   padding: 10px;
   text-align: center;
   margin-bottom: 20px;
@@ -285,20 +314,31 @@ body::before {
 
 .ad-banner p {
   font-size: 16px;
-  color: #555;
+  color: #ccc;
 }
 
 /* Footer */
 footer {
-  background-color: #1a3c34;
+  background-color: #000;
   color: #fff;
   text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
+  padding: 20px 0;
+  margin-top: 40px;
 }
 
 footer p {
   font-size: 14px;
+  color: #ccc;
+}
+
+/* Section Divider */
+.section-divider {
+  border: 0;
+  border-top: 1px solid #333; /* Más sutil, como Netflix */
+  height: 1px;
+  margin: 40px auto;
+  max-width: 1200px;
+  z-index: 1;
 }
 
 /* Responsive */
@@ -318,15 +358,16 @@ footer p {
   }
 
   .hero-content {
-    margin-top: 120px; /* Ajustado para móvil */
+    padding: 60px 20px;
+    margin-top: 120px;
   }
 
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .hero-content p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .content-section h2 {
@@ -335,5 +376,20 @@ footer p {
 
   .event-card img {
     max-height: 150px;
+  }
+
+  .section-divider {
+    margin: 20px auto;
+    border-top: 1px solid #333;
+  }
+
+  .curve-divider {
+    height: 30px;
+  }
+
+  .curve-divider::before {
+    top: -30px;
+    height: 60px;
+    border-radius: 0 0 50% 50% / 30px;
   }
 }
