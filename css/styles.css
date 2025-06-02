@@ -336,13 +336,13 @@ main {
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 16px 36px; /* Más grande */
+  padding: 16px 36px;
   background-color: #f4c430;
-  color: #1a3c34;
+  color: #0d1f1a; /* Más legible */
   text-decoration: none;
-  border-radius: 4px; /* Más cuadrado */
+  border-radius: 4px;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px; /* Más grande */
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
