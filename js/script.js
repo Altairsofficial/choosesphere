@@ -64,7 +64,7 @@ window.addEventListener('scroll', function() {
 // Inicializar Swiper
 const swiper = new Swiper('.swiper', {
   slidesPerView: 'auto',
-  spaceBetween: 30,
+  spaceBetween: 20, // Reducido para tarjetas más juntas
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -72,15 +72,15 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     640: {
       slidesPerView: 1,
-      spaceBetween: 20,
+      spaceBetween: 15,
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 20,
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 20,
     },
   },
 });
