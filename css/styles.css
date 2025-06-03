@@ -24,7 +24,7 @@ header {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding-bottom: 80px; /* Extender para cubrir la curva */
+  padding-bottom: 80px;
 }
 
 .hero-video {
@@ -149,10 +149,10 @@ header::before {
   position: relative;
   height: 80px;
   width: 100%;
-  margin-top: -80px; /* Superponer con el header */
+  margin-top: -80px;
   z-index: 2;
   overflow: hidden;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)); /* Sombra suave para estilo cine */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 .curve-divider svg {
@@ -202,12 +202,19 @@ main {
 .swiper {
   width: 100%;
   padding: 20px 0;
+  overflow: visible; /* Asegura que todos los slides sean visibles */
+}
+
+.swiper-wrapper {
+  display: flex;
 }
 
 .swiper-slide {
+  flex-shrink: 0;
+  width: 280px; /* Tamaño fijo para cada slide */
   display: flex;
   justify-content: center;
-  width: 280px;
+  opacity: 1 !important; /* Evita que Swiper oculte slides */
 }
 
 .content-item {
@@ -397,23 +404,20 @@ main {
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 18px 40px; /* Botón más grande */
+  padding: 12px 24px;
   background-color: #f4c430;
-  color: #0d1f1a; /* Contraste mejorado */
+  color: #1a3c34;
   text-decoration: none;
-  border-radius: 2px; /* Menos curvatura, más cine */
+  border-radius: 6px;
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra estilo cine */
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {
   background-color: #e0b028;
-  transform: scale(1.03); /* Efecto de realce */
+  transform: translateY(-2px);
 }
 
 .cta-button.secondary {
