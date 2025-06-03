@@ -28,11 +28,12 @@ header {
 
 .hero-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: translate(-50%, -50%);
   z-index: 0;
 }
 
@@ -68,7 +69,7 @@ header::before {
   font-weight: 700;
   margin-bottom: 20px;
   max-width: 800px;
-  line-height: 1.1; /* Compacto como Netflix */
+  line-height: 1.1;
 }
 
 .hero-content h1 span:first-child {
@@ -79,7 +80,7 @@ header::before {
 .hero-content h1 span:last-child {
   display: block;
   font-size: 48px;
-  margin-top: 0px; /* Líneas más juntas */
+  margin-top: 0px;
 }
 
 .hero-content p {
@@ -123,11 +124,11 @@ header::before {
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center; /* Centrar enlace único */
+  justify-content: center;
 }
 
 .nav-links li {
-  margin-left: 20px; /* Reducido */
+  margin-left: 20px;
 }
 
 .nav-links a {
@@ -145,9 +146,9 @@ header::before {
 /* Curve Divider */
 .curve-divider {
   position: relative;
-  height: 120px;
+  height: 80px;
   z-index: 10;
-  background: linear-gradient(to bottom, transparent, #141414);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .curve-divider svg {
@@ -563,7 +564,7 @@ footer p {
   }
 
   .curve-divider {
-    height: 80px;
+    height: 60px;
   }
 
   .section-divider {
