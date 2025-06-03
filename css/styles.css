@@ -11,12 +11,12 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #fff;
   background-color: #141414;
-  position: relative;
+  color: #fff;
   min-height: 100vh;
+  position: relative;
 }
 
 /* Header (Hero Section) */
@@ -117,7 +117,7 @@ header::before {
 }
 
 .navbar .logo:hover {
-  color: #e50914;
+  color: #d4a017;
 }
 
 .nav-links {
@@ -139,7 +139,7 @@ header::before {
 }
 
 .nav-links a:hover {
-  color: #e50914;
+  color: #d4a017;
 }
 
 /* Curve Divider */
@@ -265,7 +265,7 @@ main {
 /* Swiper Navigation */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #e50914;
+  color: #d4a017;
   --swiper-navigation-size: 40px;
 }
 
@@ -331,7 +331,7 @@ main {
 }
 
 .plan.highlighted {
-  border: 2px solid #e50914;
+  border: 2px solid #d4a017;
 }
 
 .plan h3 {
@@ -405,7 +405,7 @@ main {
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #e50914;
+  background-color: #d4a017;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -415,7 +415,7 @@ main {
 }
 
 .cta-button:hover {
-  background-color: #f40612;
+  background-color: #e6b029;
   transform: translateY(-2px);
 }
 
@@ -492,7 +492,7 @@ footer {
 }
 
 .footer-column a:hover {
-  color: #e50914;
+  color: #d4a017;
 }
 
 footer p {
