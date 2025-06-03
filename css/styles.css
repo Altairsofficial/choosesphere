@@ -152,6 +152,7 @@ header::before {
   margin-top: -80px; /* Superponer con el header */
   z-index: 2;
   overflow: hidden;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)); /* Sombra suave para estilo cine */
 }
 
 .curve-divider svg {
@@ -528,7 +529,7 @@ footer p {
   }
 
   .nav-links li {
-    margin: 10px 0px;
+    margin: 10px 0;
   }
 
   .hero-content {
@@ -549,6 +550,10 @@ footer p {
   .hero-content h1 span:last-child {
     font-size: 32px;
     margin-top: 0px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
   }
 
   .content-section h2 {
