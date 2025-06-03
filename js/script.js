@@ -63,7 +63,7 @@ window.addEventListener('scroll', function() {
 
 // Inicializar Swiper
 const swiper = new Swiper('.swiper', {
-  slidesPerView: 4, // Mostrar 4 slides por defecto
+  slidesPerView: 4,
   spaceBetween: 20,
   navigation: {
     nextEl: '.swiper-button-next',
@@ -92,6 +92,14 @@ const swiper = new Swiper('.swiper', {
 // FAQ Toggle
 document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('click', () => {
-    item.classList.toggle('active');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('p').style.display = 'none';
+    });
+    if (!isActive) {
+      item.classList.add('active');
+      item.querySelector('p').style.display = 'block';
+    }
   });
 });
