@@ -68,6 +68,7 @@ header::before {
   font-weight: 700;
   margin-bottom: 20px;
   max-width: 800px;
+  line-height: 1.1; /* Compacto como Netflix */
 }
 
 .hero-content h1 span:first-child {
@@ -78,7 +79,7 @@ header::before {
 .hero-content h1 span:last-child {
   display: block;
   font-size: 48px;
-  margin-top: 4px; /* Reducido */
+  margin-top: 0px; /* Líneas más juntas */
 }
 
 .hero-content p {
@@ -122,10 +123,11 @@ header::before {
 .nav-links {
   list-style: none;
   display: flex;
+  justify-content: center; /* Centrar enlace único */
 }
 
 .nav-links li {
-  margin-left: 30px;
+  margin-left: 20px; /* Reducido */
 }
 
 .nav-links a {
@@ -178,7 +180,7 @@ main {
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: none; }
 }
 
 .content-section h2 {
@@ -188,7 +190,7 @@ main {
   color: #fff;
   margin-bottom: 30px;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 /* Swiper Carousel */
@@ -263,7 +265,7 @@ main {
 .swiper-button-prev,
 .swiper-button-next {
   color: #f4c430;
-  --swiper-navigation-size: 40px; /* Más grandes */
+  --swiper-navigation-size: 40px;
 }
 
 .swiper-button-prev::after,
@@ -383,10 +385,14 @@ main {
   color: #ccc;
 }
 
+.faq-item.active p {
+  display: block;
+}
+
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 12px 24px; /* Ligeramente más grande */
+  padding: 12px 24px;
   background-color: #f4c430;
   color: #1a3c34;
   text-decoration: none;
@@ -527,13 +533,17 @@ footer p {
     min-height: 400px;
   }
 
+  .hero-content h1 {
+    line-height: 1.1;
+  }
+
   .hero-content h1 span:first-child {
     font-size: 36px;
   }
 
   .hero-content h1 span:last-child {
     font-size: 32px;
-    margin-top: 2px;
+    margin-top: 0px;
   }
 
   .hero-content p {
