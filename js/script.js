@@ -64,7 +64,7 @@ window.addEventListener('scroll', function() {
 // Inicializar Swiper
 const swiper = new Swiper('.swiper', {
   slidesPerView: 'auto',
-  spaceBetween: 20, // Reducido para tarjetas más juntas
+  spaceBetween: 20,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -80,7 +80,14 @@ const swiper = new Swiper('.swiper', {
     },
     1024: {
       slidesPerView: 3,
-      slidesPerView: 20,
+      spaceBetween: 20,
     },
   },
+});
+
+// FAQ Toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
 });
