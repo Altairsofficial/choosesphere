@@ -249,21 +249,22 @@ main {
 /* Swiper Navigation */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #fff;
+  color: #e50914;
   --swiper-navigation-size: 30px;
   width: 60px;
   height: 60px;
-  background-color: #d4a017;
+  background-color: #333333;
   border: 2px solid #fff;
   border-radius: 50%;
   z-index: 10;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  background-color: #e6b029;
+  background-color: #444444;
+  color: #ff1a2e;
   transform: scale(1.1);
 }
 
@@ -271,6 +272,11 @@ main {
 .swiper-button-next::after {
   font-size: 30px;
   font-weight: bold;
+  content: '<';
+}
+
+.swiper-button-next::after {
+  content: '>';
 }
 
 /* Subscription Section */
