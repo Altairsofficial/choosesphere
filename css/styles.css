@@ -133,7 +133,7 @@ header::before {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -145,7 +145,7 @@ header::before {
 /* Curve Divider */
 .curve-divider {
   width: 100%;
-  height: 60px;
+  height: auto;
   margin-top: -40px;
   z-index: 2;
   overflow: hidden;
@@ -155,7 +155,7 @@ header::before {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(229, 9, 20, 0.3));
+  filter: drop-shadow(0 2px 2px rgba(229, 9, 20, 0.5));
 }
 
 /* Main Content */
@@ -186,72 +186,87 @@ main {
 
 /* Swiper Carousel */
 .swiper {
-  width: 100%;
-  padding: 20px 0;
-  overflow: visible !important;
+  max-width: 100%;
+  padding: 20px 0 !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .swiper-wrapper {
   display: flex;
-  transition: transform 0.3s ease;
+  align-items: stretch;
 }
 
 .swiper-slide {
-  flex-shrink: 0;
-  width: 280px;
   display: flex;
   justify-content: center;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transition: opacity 0.3s ease;
+  align-items: stretch;
+  width: auto;
+  flex-shrink: 0;
+  height: auto;
 }
 
 .content-item {
   background-color: #141414;
-  padding: 10px;
+  padding: 15px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-  max-width: 280px;
-  position: relative;
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .content-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
 .content-item img {
   width: 100%;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .content-item h3 {
   font-size: 18px;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .content-item p {
   font-size: 14px;
   color: #8c8c8c;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d4a017;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .hover-preview {
   display: none;
   position: absolute;
-  bottom: 60px;
+  bottom: 100px;
   left: 10px;
   right: 10px;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
-  padding: 8px;
+  padding: 10px;
   border-radius: 4px;
   font-size: 12px;
   z-index: 20;
@@ -265,12 +280,24 @@ main {
 .swiper-button-prev,
 .swiper-button-next {
   color: #d4a017;
-  --swiper-navigation-size: 40px;
+  --swiper-navigation-size: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  font-size: 40px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* Subscription Section */
@@ -283,14 +310,14 @@ main {
 .plan {
   background-color: #141414;
   padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   text-align: center;
   transition: transform 0.3s ease;
 }
 
 .plan:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
 }
 
 .plan.highlighted {
@@ -298,7 +325,7 @@ main {
 }
 
 .plan h3 {
-  font-size: 22px;
+  font-size: 24px;
   color: #fff;
   margin-bottom: 10px;
 }
@@ -311,27 +338,27 @@ main {
 
 .plan ul {
   list-style: none;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .plan ul li {
   font-size: 14px;
-  color: #8c8c8c;
+  color: #c0c0c0;
   margin-bottom: 8px;
 }
 
 /* FAQ Section */
 .faq-item {
-  background-color: #303030;
+  background-color: #333333;
   padding: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .faq-item:hover {
-  background-color: #3a3a3a;
+  background-color: #3f3f3f;
 }
 
 .faq-item h3 {
@@ -345,7 +372,7 @@ main {
 
 .faq-item p {
   font-size: 16px;
-  color: #fff;
+  color: #c0c0c0;
   display: none;
   margin-top: 15px;
 }
@@ -383,12 +410,12 @@ main {
 }
 
 .cta-button.secondary {
-  background-color: #303030;
+  background-color: #333333;
   color: #fff;
 }
 
 .cta-button.secondary:hover {
-  background-color: #3a3a3a;
+  background-color: #3f3f3f;
   transform: translateY(-2px);
 }
 
@@ -553,5 +580,17 @@ footer p {
   .footer-container {
     flex-direction: column;
     text-align: left;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    --swiper-navigation-size: 15px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 15px;
   }
 }

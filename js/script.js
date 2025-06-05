@@ -52,6 +52,53 @@ function playVideo(url) {
   `;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('Swiper script loaded');
+  
+  // Inicializar Swiper
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+    on: {
+      init: function () {
+        console.log('Swiper initialized');
+      },
+      slideChange: function () {
+        console.log('Slide changed to: ', this.activeIndex);
+      },
+    },
+  });
+
+  // Verificar elementos de navegación
+  if (!document.querySelector('.swiper-button-next') || !document.querySelector('.swiper-button-prev')) {
+    console.warn('Navigation buttons not found');
+  }
+});
+
+// Navbar scroll
 window.addEventListener('scroll', function() {
   const navbar = document.querySelector('.navbar');
   if (window.scrollY > 50) {
@@ -59,35 +106,6 @@ window.addEventListener('scroll', function() {
   } else {
     navbar.classList.remove('scrolled');
   }
-});
-
-// Inicializar Swiper
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 4,
-  spaceBetween: 20,
-  loop: false,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 15,
-    },
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 15,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-    },
-  },
 });
 
 // FAQ Toggle
