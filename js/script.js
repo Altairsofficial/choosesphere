@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 3,
     spaceBetween: 20,
     loop: false,
-    effect: 'slide', // Animación de deslizamiento
-    speed: 600, // Duración de la animación (ms)
-    cssMode: false, // Control de animaciones CSS
+    effect: 'slide',
+    speed: 600,
+    cssMode: false,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -74,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function () {
       bulletActiveClass: 'swiper-pagination-bullet-active',
     },
     autoplay: {
-      delay: 5000, // 5 segundos por slide
-      disableOnInteraction: true, // Pausar al interactuar
+      delay: 5000,
+      disableOnInteraction: true,
     },
-    touchRatio: 1.5, // Mayor sensibilidad al swipe
-    simulateTouch: true, // Arrastre en escritorio
-    grabCursor: true, // Cursor de "agarrar"
+    touchRatio: 1.5,
+    simulateTouch: true,
+    grabCursor: true,
     keyboard: {
-      enabled: true, // Navegación por teclado
+      enabled: true,
       onlyInViewport: true,
     },
     breakpoints: {
@@ -116,6 +116,54 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!document.querySelector('.swiper-button-next') || !document.querySelector('.swiper-button-prev')) {
     console.warn('Navigation buttons not found');
   }
+
+  // Modal functionality
+  const modal = document.getElementById('story-modal');
+  const modalImage = modal.querySelector('.modal-image');
+  const modalTitle = modal.querySelector('.modal-title');
+  const modalDescription = modal.querySelector('.modal-description');
+  const modalStart = modal.querySelector('.modal-start');
+  const modalClose = modal.querySelector('.modal-close');
+
+  // Abrir modal al clicar en tarjeta
+  document.querySelectorAll('.content-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const url = item.getAttribute('data-url');
+      const image = item.getAttribute('data-image');
+      const title = item.getAttribute('data-title');
+      const description = item.getAttribute('data-description');
+
+      modalImage.src = image;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modalStart.href = url;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Evitar scroll
+    });
+  });
+
+  // Cerrar modal al clicar en "X" o fondo
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Cerrar modal con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 });
 
 // Navbar scroll
