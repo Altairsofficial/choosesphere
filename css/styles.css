@@ -187,10 +187,10 @@ main {
 /* Swiper Carousel */
 .swiper {
   max-width: 100%;
-  padding: 20px 40px !important; /* Aumentado padding para swipe */
+  padding: 20px 40px 40px !important; /* Espacio para pagination */
   position: relative;
   overflow: hidden;
-  touch-action: pan-y; /* Mejora swipe en móviles */
+  touch-action: pan-y;
 }
 
 .swiper-wrapper {
@@ -205,6 +205,14 @@ main {
   width: auto;
   flex-shrink: 0;
   height: auto;
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .content-item {
@@ -232,6 +240,11 @@ main {
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 2px;
+  transition: filter 0.3s ease;
+}
+
+.content-item:hover img {
+  filter: brightness(1.1); /* Efecto de brillo al hover */
 }
 
 .content-item h3 {
@@ -270,6 +283,26 @@ main {
 
 .swiper-button-next::after {
   content: '>';
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+  bottom: 10px !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #8c8c8c;
+  opacity: 0.5;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #e50914;
+  opacity: 1;
 }
 
 /* Subscription Section */
@@ -506,11 +539,13 @@ footer p {
   }
 
   .swiper {
-    padding: 20px 20px !important; /* Ajustado para móviles */
+    padding: 20px 20px 40px !important;
   }
 
   .swiper-slide {
     max-width: 100%;
+    opacity: 1; /* Evitar opacidad en móvil */
+    transform: scale(1); /* Evitar escala en móvil */
   }
 
   .content-item {
@@ -544,5 +579,11 @@ footer p {
   .swiper-button-prev::after,
   .swiper-button-next::after {
     font-size: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
   }
 }

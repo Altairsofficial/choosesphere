@@ -60,13 +60,30 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 3,
     spaceBetween: 20,
     loop: false,
+    effect: 'slide', // Animación de deslizamiento
+    speed: 600, // Duración de la animación (ms)
+    cssMode: false, // Control de animaciones CSS
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    touchRatio: 1, // Habilita swipe suave
-    simulateTouch: true, // Permite arrastre en escritorio
-    grabCursor: true, // Cursor de "agarrar" en escritorio
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active',
+    },
+    autoplay: {
+      delay: 5000, // 5 segundos por slide
+      disableOnInteraction: true, // Pausar al interactuar
+    },
+    touchRatio: 1.5, // Mayor sensibilidad al swipe
+    simulateTouch: true, // Arrastre en escritorio
+    grabCursor: true, // Cursor de "agarrar"
+    keyboard: {
+      enabled: true, // Navegación por teclado
+      onlyInViewport: true,
+    },
     breakpoints: {
       320: {
         slidesPerView: 1,
