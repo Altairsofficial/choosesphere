@@ -187,9 +187,10 @@ main {
 /* Swiper Carousel */
 .swiper {
   max-width: 100%;
-  padding: 20px 0 !important;
+  padding: 20px 40px !important; /* Aumentado padding para swipe */
   position: relative;
   overflow: hidden;
+  touch-action: pan-y; /* Mejora swipe en móviles */
 }
 
 .swiper-wrapper {
@@ -502,6 +503,10 @@ footer p {
   .curve-divider {
     height: 40px;
     margin-top: -20px;
+  }
+
+  .swiper {
+    padding: 20px 20px !important; /* Ajustado para móviles */
   }
 
   .swiper-slide {

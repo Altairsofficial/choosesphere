@@ -64,6 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    touchRatio: 1, // Habilita swipe suave
+    simulateTouch: true, // Permite arrastre en escritorio
+    grabCursor: true, // Cursor de "agarrar" en escritorio
     breakpoints: {
       320: {
         slidesPerView: 1,
