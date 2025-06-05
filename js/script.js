@@ -65,6 +65,7 @@ window.addEventListener('scroll', function() {
 const swiper = new Swiper('.swiper', {
   slidesPerView: 4,
   spaceBetween: 20,
+  loop: false,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
