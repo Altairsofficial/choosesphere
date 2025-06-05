@@ -390,34 +390,32 @@ main {
   transform: translateY(-2px);
 }
 
+.cta-button.secondary.disabled {
+  background-color: #333333;
+  cursor: default;
+  opacity: 0.6;
+  transform: none;
+}
+
+.cta-button.secondary.disabled:hover {
+  background-color: #333333;
+  transform: none;
+}
+
 /* Ad Banner */
 .ad-banner {
   background-color: #141414;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
-  margin-bottom: 30px;
-  border-radius: 4px;
-}
-
-.ad-banner p {
-  font-size: 16px;
-  color: #8c8c8c;
+  margin-bottom: 15px;
 }
 
 /* Footer */
-footer {
-  background-color: #141414;
-  color: #8c8c8c;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 60px;
-}
-
 .footer-container {
   display: flex;
   justify-content: space-between;
   max-width: 1400px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   flex-wrap: wrap;
 }
 
@@ -442,6 +440,7 @@ footer {
 }
 
 .footer-column a {
+  font-size: 14px;
   color: #8c8c8c;
   text-decoration: none;
 }
@@ -452,14 +451,14 @@ footer {
 
 footer p {
   font-size: 14px;
+  color: #333333;
 }
 
 /* Section Divider */
 .section-divider {
-  border: 0;
+  border: none;
   border-top: 1px solid #333;
-  height: 1px;
-  margin: 60px auto;
+  margin: 40px auto;
   max-width: 1400px;
 }
 
@@ -471,7 +470,6 @@ footer p {
   }
 
   .nav-links {
-    flex-direction: column;
     margin-top: 10px;
   }
 
@@ -481,25 +479,20 @@ footer p {
 
   .hero-content {
     padding: 80px 20px;
-    margin-top: 60px;
+    margin-top: 50px;
     min-height: 400px;
-    padding-bottom: 40px;
   }
 
   .hero-content h1 span:first-child {
-    font-size: 36px;
-  }
-
-  .hero-content h1 span:last-child {
     font-size: 32px;
   }
 
-  .hero-content p {
-    font-size: 16px;
+  .hero-content h1 span:last-child {
+    font-size: 28px;
   }
 
   .content-section h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .content-item img {
@@ -511,21 +504,12 @@ footer p {
     margin-top: -20px;
   }
 
-  .curve-divider svg {
-    stroke-width: 2px;
-  }
-
-  .section-divider {
-    margin: 40px;
-  }
-
   .swiper-slide {
-    width: 100%;
-    max-width: 280px;
+    max-width: 100%;
   }
 
   .content-item {
-    max-width: 100%;
+    width: 100%;
     padding: 10px;
   }
 
