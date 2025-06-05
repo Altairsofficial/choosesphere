@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Inicializar Swiper
   const swiper = new Swiper('.swiper', {
-    slidesPerView: 3,
-    spaceBetween: 20,
+    slidesPerView: 4, // Más slides visibles por diseño más estrecho
+    spaceBetween: 15,
     loop: false,
     effect: 'slide',
     speed: 600,
@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     touchRatio: 1.5,
     simulateTouch: true,
-    grabCursor: true,
+    preventClicks: false, // Permitir clics en tarjetas
+    preventClicksPropagation: false, // Evitar bloquear eventos
     keyboard: {
       enabled: true,
       onlyInViewport: true,
@@ -87,19 +88,19 @@ document.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       320: {
         slidesPerView: 1,
-        spaceBetween: 15,
+        spaceBetween: 10,
       },
-      640: {
+      480: {
         slidesPerView: 2,
-        spaceBetween: 15,
+        spaceBetween: 10,
       },
       768: {
-        slidesPerView: 2,
-        spaceBetween: 20,
+        slidesPerView: 3,
+        spaceBetween: 15,
       },
       1024: {
-        slidesPerView: 3,
-        spaceBetween: 20,
+        slidesPerView: 4,
+        spaceBetween: 15,
       },
     },
     on: {
@@ -127,7 +128,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Abrir modal al clicar en tarjeta
   document.querySelectorAll('.content-item').forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault(); // Evitar comportamiento por defecto
+      console.log('Card clicked:', item.getAttribute('data-title')); // Depuración
       const url = item.getAttribute('data-url');
       const image = item.getAttribute('data-image');
       const title = item.getAttribute('data-title');
@@ -140,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
       modalStart.href = url;
 
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Evitar scroll
+      document.body.style.overflow = 'hidden';
     });
   });
 
@@ -186,7 +189,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
     if (!isActive) {
       item.classList.add('active');
-      item.querySelector('p').style.display = 'block';
+      i.querySelector('p').style.display = 'block';
     }
   });
 });

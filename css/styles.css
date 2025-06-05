@@ -217,17 +217,14 @@ main {
 
 .content-item {
   background-color: #141414;
-  padding: 15px;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  text-align: center;
+  width: 200px; /* Más estrecho */
+  height: 300px; /* Rectangular como carátula */
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 350px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer; /* Indicar que es clicable */
+  cursor: pointer;
+  position: relative;
 }
 
 .content-item:hover {
@@ -237,28 +234,14 @@ main {
 
 .content-item img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
-  margin-bottom: 2px;
   transition: filter 0.3s ease;
 }
 
 .content-item:hover img {
   filter: brightness(1.1);
-}
-
-.content-item h3 {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 2px;
-}
-
-.content-item p {
-  font-size: 14px;
-  color: #8c8c8c;
-  margin-bottom: 2rem;
-  flex-grow: 1;
 }
 
 /* Swiper Navigation */
@@ -308,7 +291,6 @@ main {
 
 /* Modal */
 .modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -319,12 +301,14 @@ main {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.active {
   display: flex;
   opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
@@ -336,7 +320,7 @@ main {
   position: relative;
   transform: scale(0.8);
   transition: transform 0.3s ease;
-  border-top: 3px solid #e50914; /* Curva roja */
+  border-top: 3px solid #e50914;
 }
 
 .modal.active .modal-content {
@@ -344,7 +328,7 @@ main {
 }
 
 .modal-close {
-  position: absolute;
+  position: none;
   top: 10px;
   right: 15px;
   font-size: 24px;
@@ -397,7 +381,7 @@ main {
 .plan {
   background-color: #141414;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 0 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   text-align: center;
   transition: transform 0.3s ease;
@@ -555,13 +539,13 @@ main {
   margin-bottom: 10px;
 }
 
-.footer-column a {
+.footer-column ul li a {
   font-size: 14px;
   color: #8c8c8c;
   text-decoration: none;
 }
 
-.footer-column a:hover {
+.footer-column ul li a:hover {
   color: #d4a017;
 }
 
@@ -611,8 +595,9 @@ footer p {
     font-size: 20px;
   }
 
-  .content-item img {
-    height: 120px;
+  .content-item {
+    width: 160px;
+    height: 240px;
   }
 
   .curve-divider {
@@ -628,24 +613,6 @@ footer p {
     max-width: 100%;
     opacity: 1;
     transform: scale(1);
-  }
-
-  .content-item {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .content-item h3 {
-    font-size: 16px;
-  }
-
-  .content-item p {
-    font-size: 12px;
-  }
-
-  .cta-button {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 
   .modal-content {
