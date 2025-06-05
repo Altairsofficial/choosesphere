@@ -251,19 +251,13 @@ main {
 .swiper-button-next {
   color: #e50914;
   --swiper-navigation-size: 30px;
-  width: 60px;
-  height: 60px;
-  border: 2px solid #fff;
-  border-radius: 50%;
   z-index: 10;
-  transition: color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: color 0.3s ease;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
   color: #ff1a2e;
-  transform: scale(1.1);
 }
 
 .swiper-button-prev::after,
@@ -522,7 +516,7 @@ footer p {
   }
 
   .section-divider {
-    margin: 40px auto;
+    margin: 40px;
   }
 
   .swiper-slide {
@@ -556,8 +550,6 @@ footer p {
   .swiper-button-prev,
   .swiper-button-next {
     --swiper-navigation-size: 20px;
-    width: 40px;
-    height: 40px;
   }
 
   .swiper-button-prev::after,
