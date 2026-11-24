@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="180" viewBox="0 0 240 180" ><defs>
+      <linearGradient id="tyn-arcoiris" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FF7A7A"/><stop offset=".2" stop-color="#FFB54D"/>
+        <stop offset=".4" stop-color="#FFE45C"/><stop offset=".6" stop-color="#7EE081"/>
+        <stop offset=".8" stop-color="#6EC8FF"/><stop offset="1" stop-color="#B08CFF"/>
+      </linearGradient>
+      <linearGradient id="tyn-cielo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8EDBFF"/><stop offset="1" stop-color="#E3F7FF"/>
+      </linearGradient>
+      <linearGradient id="tyn-noche" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3B2F7A"/><stop offset="1" stop-color="#7B5CFF"/>
+      </linearGradient>
+    </defs><g transform="translate(120 100) translate(0 0) rotate(0) scale(1 1)"><circle cx="-56" cy="12" r="36" fill="#111" stroke="#111" stroke-width="10"/><circle cx="-22" cy="-22" r="46" fill="#111" stroke="#111" stroke-width="10"/><circle cx="28" cy="-18" r="42" fill="#111" stroke="#111" stroke-width="10"/><circle cx="62" cy="14" r="34" fill="#111" stroke="#111" stroke-width="10"/><ellipse cx="2" cy="26" rx="80" ry="32" fill="#111" stroke="#111" stroke-width="10"/><circle cx="-56" cy="12" r="36" fill="#fff" stroke="none"/><circle cx="-22" cy="-22" r="46" fill="#fff" stroke="none"/><circle cx="28" cy="-18" r="42" fill="#fff" stroke="none"/><circle cx="62" cy="14" r="34" fill="#fff" stroke="none"/><ellipse cx="2" cy="26" rx="80" ry="32" fill="#fff" stroke="none"/>
+      <ellipse cx="-96" cy="30" rx="12" ry="15" transform="rotate(-25 -96 30)" fill="#fff" stroke="#111" stroke-width="5"/>
+      <ellipse cx="98" cy="30" rx="12" ry="15" transform="rotate(25 98 30)" fill="#fff" stroke="#111" stroke-width="5"/><path transform="translate(40 -60) rotate(12)" d="M0 -16 L4.7 -6.5 L15.2 -4.9 L7.6 2.5 L9.4 13 L0 8 L-9.4 13 L-7.6 2.5 L-15.2 -4.9 L-4.7 -6.5 Z" fill="#fff" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/><ellipse cx="-22" cy="-2" rx="7" ry="10" fill="#111"/><ellipse cx="22" cy="-2" rx="7" ry="10" fill="#111"/><circle cx="-19.5" cy="-6" r="3" fill="#fff"/><circle cx="24.5" cy="-6" r="3" fill="#fff"/><path d="M-12 14 Q0 28 12 14" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/></g></svg>
