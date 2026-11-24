@@ -107,7 +107,7 @@
   "cupones": [
     {
       "id": "bba_fundadores",
-      "nombre": "Programa Fundadores (−50 % puesta en marcha)",
+      "nombre": "Fundadores −50 % puesta en marcha",
       "porcentaje": 50,
       "aplica_a": ["bba_arranque_puesta_en_marcha", "bba_crecimiento_puesta_en_marcha", "bba_escala_puesta_en_marcha"],
       "usos_maximos": 10,

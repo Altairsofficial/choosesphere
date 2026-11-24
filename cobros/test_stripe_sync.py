@@ -131,6 +131,7 @@ def test_cuerpos_validos_segun_sdk():
         _comprueba(ss.payload_precio(pid, pr, cat["moneda"]), _price_create_params.PriceCreateParams, f"precio {pr['lookup_key']}")
     for c in cat["cupones"]:
         _comprueba(ss.payload_cupon(c), _coupon_create_params.CouponCreateParams, f"cupón {c['id']}")
+        assert len(c["nombre"]) <= 40, f"cupón {c['id']}: Stripe admite nombres de 40 caracteres como máximo"
         _comprueba(ss.payload_codigo(c), _promotion_code_create_params.PromotionCodeCreateParams, f"código {c['codigo']}")
     for e in cat["enlaces"]:
         _comprueba(ss.payload_enlace(e, cat, ids), _payment_link_create_params.PaymentLinkCreateParams, f"enlace {e['clave']}")
