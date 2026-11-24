@@ -11,7 +11,8 @@ Uso:
   python cobros/stripe_sync.py             # cuenta en MODO PRUEBA (se niega a tocar una cuenta real)
   python cobros/stripe_sync.py --live      # cuenta real, solo cuando estés dado de alta
 
-La clave secreta se lee de la variable de entorno STRIPE_SECRET_KEY.
+La clave secreta se lee de la variable de entorno STRIPE_SECRET_KEY. Si tu red usa un proxy que
+re-firma TLS, indica su certificado en STRIPE_CA_BUNDLE.
 Es idempotente: si lo ejecutas dos veces no duplica nada. Si cambias un importe en el catálogo,
 crea el precio nuevo, le pasa la lookup_key, archiva el anterior y rehace los enlaces afectados.
 Al terminar escribe cobros/enlaces-prueba.json (o enlaces-real.json) con las URL de pago.
@@ -132,6 +133,11 @@ def payload_enlace(enlace: dict, cat: dict, id_precio: dict) -> dict:
 
 
 # ------------------------------------------------------------------ sincronización
+def _d(obj):
+    """Los objetos del SDK de Stripe no son diccionarios desde la v13: se convierten para leerlos igual."""
+    return obj.to_dict() if hasattr(obj, "to_dict") else obj
+
+
 class Sincronizador:
     def __init__(self, cliente, cat: dict, log=print):
         self.c = cliente.v1
@@ -141,13 +147,13 @@ class Sincronizador:
         self.actualizados = 0
 
     def _crear(self, servicio: str, datos: dict, etiqueta: str):
-        obj = getattr(self.c, servicio).create(datos)
+        obj = _d(getattr(self.c, servicio).create(datos))
         self.creados += 1
         self.log(f"  + {servicio[:-1]} {etiqueta}")
         return obj
 
     def _actualizar(self, servicio: str, id_: str, datos: dict, etiqueta: str):
-        obj = getattr(self.c, servicio).update(id_, datos)
+        obj = _d(getattr(self.c, servicio).update(id_, datos))
         self.actualizados += 1
         self.log(f"  ~ {servicio[:-1]} {etiqueta}: {', '.join(datos)}")
         return obj
@@ -157,7 +163,7 @@ class Sincronizador:
         self.log("Productos")
         for p in self.cat["productos"]:
             try:
-                actual = self.c.products.retrieve(p["id"])
+                actual = _d(self.c.products.retrieve(p["id"]))
             except stripe.InvalidRequestError as e:
                 if getattr(e, "code", None) != "resource_missing":
                     raise
@@ -182,7 +188,7 @@ class Sincronizador:
         existentes = {}
         for i in range(0, len(claves), 10):  # Stripe acepta hasta 10 lookup_keys por consulta
             res = self.c.prices.list({"lookup_keys": claves[i:i + 10], "limit": 100})
-            for pr in res.auto_paging_iter():
+            for pr in map(_d, res.auto_paging_iter()):
                 existentes[pr.get("lookup_key")] = pr
 
         ids = {}
@@ -220,7 +226,7 @@ class Sincronizador:
         self.log("Cupones")
         for c in self.cat.get("cupones", []):
             try:
-                actual = self.c.coupons.retrieve(c["id"])
+                actual = _d(self.c.coupons.retrieve(c["id"]))
                 if actual.get("percent_off") != c["porcentaje"]:
                     raise SystemExit(
                         f"El cupón {c['id']} ya existe con otro porcentaje. Los cupones no se pueden "
@@ -232,7 +238,7 @@ class Sincronizador:
                 self._crear("coupons", payload_cupon(c), c["id"])
             if c.get("codigo"):
                 codigos = self.c.promotion_codes.list({"code": c["codigo"], "limit": 10})
-                if not any(pc.get("active", True) for pc in codigos.auto_paging_iter()):
+                if not any(_d(pc).get("active", True) for pc in codigos.auto_paging_iter()):
                     self._crear("promotion_codes", payload_codigo(c), c["codigo"])
 
     # enlaces de pago -------------------------------------------------------
@@ -240,7 +246,7 @@ class Sincronizador:
         """Devuelve clave -> URL del enlace de pago vigente."""
         self.log("Enlaces de pago")
         vigentes = {}
-        for pl in self.c.payment_links.list({"active": True, "limit": 100}).auto_paging_iter():
+        for pl in map(_d, self.c.payment_links.list({"active": True, "limit": 100}).auto_paging_iter()):
             meta = pl.get("metadata") or {}
             if meta.get("bba_clave"):
                 vigentes.setdefault(meta["bba_clave"], []).append(pl)
@@ -297,9 +303,11 @@ def main(argv=None) -> int:
     if not clave:
         print("Falta STRIPE_SECRET_KEY (Stripe › Desarrolladores › Claves de API).", file=sys.stderr)
         return 2
+    if os.environ.get("STRIPE_CA_BUNDLE"):  # redes con proxy que re-firma TLS (p. ej. proxies corporativos)
+        stripe.ca_bundle_path = os.environ["STRIPE_CA_BUNDLE"]
     cliente = stripe.StripeClient(clave)
 
-    real = bool(cliente.v1.balance.retrieve().get("livemode"))
+    real = bool(_d(cliente.v1.balance.retrieve()).get("livemode"))
     if real and not args.live:
         print("Esta clave es de una cuenta REAL. Si de verdad quieres crear los cobros reales, añade --live.", file=sys.stderr)
         return 3
