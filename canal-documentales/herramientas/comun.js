@@ -44,7 +44,10 @@ async function pedir(url, intentos = 6) {
     const espera = ultimaPeticion + 400 - Date.now();
     if (espera > 0) await new Promise((r) => setTimeout(r, espera));
     ultimaPeticion = Date.now();
-    const r = await fetch(url, { headers: { 'User-Agent': UA } });
+    let r;
+    try { r = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) }); }
+    catch (e) { if (process.env.DEPURAR) console.warn('  red:', e.message); await new Promise((res) => setTimeout(res, 2000)); continue; }
+    if (process.env.DEPURAR) console.warn('  ', r.status, url.slice(0, 90));
     if (r.ok) return r;
     if (r.status === 429 || r.status >= 500) {
       const ra = parseInt(r.headers.get('retry-after') || '0', 10);
