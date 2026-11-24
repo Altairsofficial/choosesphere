@@ -32,6 +32,7 @@ async function imagenesGuion(guion, id) {
     const destino = path.join(dir, `${String(i).padStart(2, '0')}.jpg`), meta = `${destino}.json`;
     if (fs.existsSync(destino) && fs.existsSync(meta)) { res[i] = { ...JSON.parse(fs.readFileSync(meta, 'utf8')), ruta: destino }; usadas.add(res[i].archivo); continue; }
     let elegida = null;
+    if (process.env.SIN_IMAGENES) continue; // usar solo las imágenes ya descargadas
     try {
       for (const q of [e.busqueda, ...(e.alternativas || []), e.busqueda.split(' ').slice(0, 2).join(' ')]) {
         const c = (await candidatas(q)).filter((x) => !usadas.has(x.archivo));
