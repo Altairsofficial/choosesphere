@@ -13,7 +13,7 @@
   var PLANS = {
     Arranque: { monthly: 290, setup: 990 },
     Crecimiento: { monthly: 690, setup: 2900 },
-    Escala: { monthly: 1490, setup: 6900 }
+    Escala: { monthly: 1790, setup: 6900 }
   };
   var WEEKS_PER_MONTH = 4.33;
 
