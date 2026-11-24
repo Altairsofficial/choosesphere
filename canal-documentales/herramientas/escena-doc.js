@@ -45,7 +45,7 @@
   R.dato = (e, t) => {
     const a = out(fase(t, 0.1, 1.6)), b = out(fase(t, 1.0, 2.0));
     // Cuenta progresiva si la cifra es numérica ("20 000", "+23 000", "10 %", "75 000")
-    const m = /^([^\d]*)([\d\s.,]+)(.*)$/.exec(e.cifra);
+    const m = /^([^\d]*)(\d(?:[\d\s.,]*\d)?)(.*)$/.exec(e.cifra);
     let cifra = e.cifra;
     if (m) {
       const n = parseFloat(m[2].replace(/[\s.]/g, '').replace(',', '.'));
