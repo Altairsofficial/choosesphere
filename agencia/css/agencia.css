@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sphere Agents — hoja de estilos de la web de la agencia
+   Big Bang Agency — hoja de estilos de la web de la agencia
    Autocontenida: no depende de css/styles.css del sitio principal.
    Fuentes autoalojadas (OFL) => sin peticiones a terceros (sin banner de cookies).
    ========================================================================== */
@@ -578,6 +578,8 @@ table.vs { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 
 .page-hero { padding: clamp(48px, 7vw, 80px) 0 24px; }
 .page-hero p { color: var(--muted); }
 .prose { max-width: 780px; padding-bottom: 88px; }
+.page-hero .prose { padding-bottom: 0; }
+.prose > h2:first-child { margin-top: .4em; }
 .prose h2 { font-size: 1.4rem; margin-top: 2em; }
 .prose h3 { font-size: 1.1rem; margin-top: 1.6em; }
 .prose ul, .prose ol { padding-left: 1.3em; }

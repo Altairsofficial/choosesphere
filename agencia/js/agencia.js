@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sphere Agents — interacciones de la web
+   Big Bang Agency — interacciones de la web
    - Menú móvil y cabecera
    - Interruptor mensual/anual de precios
    - Botones de pack que preseleccionan el formulario
