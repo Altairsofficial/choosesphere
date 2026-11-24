@@ -1,0 +1,133 @@
+{
+  "_nota": "Fuente única de los precios que se cobran con Stripe. Importes en euros, sin IVA. Debe coincidir con agencia/index.html.",
+  "moneda": "eur",
+  "iva_automatico": false,
+  "url_condiciones": "https://choosesphere.netlify.app/agencia/condiciones.html",
+  "mensaje_confirmacion": "¡Gracias! Hemos recibido tu pago. Te escribimos en menos de 24 h laborables con los siguientes pasos.",
+
+  "productos": [
+    {
+      "id": "bba_diagnostico",
+      "nombre": "Diagnóstico de automatización",
+      "descripcion": "Dos sesiones, mapa de procesos, 5 automatizaciones priorizadas y propuesta con precio cerrado. Descontable al contratar un pack en 30 días.",
+      "precios": [{"lookup_key": "bba_diagnostico", "importe": 490, "tipo": "unico"}]
+    },
+
+    {
+      "id": "bba_arranque_puesta_en_marcha",
+      "nombre": "Pack Arranque · Puesta en marcha (50 %)",
+      "descripcion": "Cada pago cubre la mitad de la puesta en marcha de 990 €: uno a la firma y otro en el lanzamiento.",
+      "precios": [{"lookup_key": "bba_arranque_setup_50", "importe": 495, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_arranque_cuota",
+      "nombre": "Pack Arranque · Cuota",
+      "descripcion": "1 agente de IA, 1 canal, 2 integraciones y 1.000 conversaciones o 5.000 ejecuciones al mes.",
+      "precios": [
+        {"lookup_key": "bba_arranque_mensual", "importe": 290, "tipo": "mensual"},
+        {"lookup_key": "bba_arranque_anual", "importe": 2900, "tipo": "anual"}
+      ]
+    },
+
+    {
+      "id": "bba_crecimiento_puesta_en_marcha",
+      "nombre": "Pack Crecimiento · Puesta en marcha (50 %)",
+      "descripcion": "Cada pago cubre la mitad de la puesta en marcha de 2.900 €: uno a la firma y otro en el lanzamiento.",
+      "precios": [{"lookup_key": "bba_crecimiento_setup_50", "importe": 1450, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_crecimiento_cuota",
+      "nombre": "Pack Crecimiento · Cuota",
+      "descripcion": "Hasta 3 agentes, multicanal, 6 integraciones y 5.000 conversaciones o 25.000 ejecuciones al mes.",
+      "precios": [
+        {"lookup_key": "bba_crecimiento_mensual", "importe": 690, "tipo": "mensual"},
+        {"lookup_key": "bba_crecimiento_anual", "importe": 6900, "tipo": "anual"}
+      ]
+    },
+
+    {
+      "id": "bba_escala_puesta_en_marcha",
+      "nombre": "Pack Escala · Puesta en marcha (50 %)",
+      "descripcion": "Cada pago cubre la mitad de la puesta en marcha de 6.900 €: uno a la firma y otro en el lanzamiento.",
+      "precios": [{"lookup_key": "bba_escala_setup_50", "importe": 3450, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_escala_cuota",
+      "nombre": "Pack Escala · Cuota",
+      "descripcion": "Hasta 6 agentes + voz (500 min), integraciones ilimitadas, SLA 99,5 % y 15.000 conversaciones o 100.000 ejecuciones al mes.",
+      "precios": [
+        {"lookup_key": "bba_escala_mensual", "importe": 1790, "tipo": "mensual"},
+        {"lookup_key": "bba_escala_anual", "importe": 17900, "tipo": "anual"}
+      ]
+    },
+
+    {
+      "id": "bba_extra_agente",
+      "nombre": "Extra · Agente adicional",
+      "precios": [
+        {"lookup_key": "bba_extra_agente_setup", "importe": 690, "tipo": "unico"},
+        {"lookup_key": "bba_extra_agente_mensual", "importe": 190, "tipo": "mensual"}
+      ]
+    },
+    {
+      "id": "bba_extra_voz",
+      "nombre": "Extra · Agente de voz (300 min/mes)",
+      "precios": [
+        {"lookup_key": "bba_extra_voz_setup", "importe": 1200, "tipo": "unico"},
+        {"lookup_key": "bba_extra_voz_mensual", "importe": 290, "tipo": "mensual"}
+      ]
+    },
+    {
+      "id": "bba_extra_canal",
+      "nombre": "Extra · Canal adicional",
+      "precios": [{"lookup_key": "bba_extra_canal", "importe": 390, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_extra_uso",
+      "nombre": "Extra · Bloque de uso (1.000 conversaciones o 10.000 ejecuciones)",
+      "precios": [{"lookup_key": "bba_extra_uso", "importe": 49, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_extra_bolsa_horas",
+      "nombre": "Extra · Bolsa de 10 horas",
+      "precios": [{"lookup_key": "bba_extra_bolsa_horas", "importe": 650, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_extra_taller",
+      "nombre": "Extra · Taller «IA para tu equipo»",
+      "precios": [{"lookup_key": "bba_extra_taller", "importe": 590, "tipo": "unico"}]
+    },
+    {
+      "id": "bba_extra_soporte_247",
+      "nombre": "Extra · Soporte 24/7",
+      "precios": [{"lookup_key": "bba_extra_soporte_247", "importe": 390, "tipo": "mensual"}]
+    }
+  ],
+
+  "cupones": [
+    {
+      "id": "bba_fundadores",
+      "nombre": "Fundadores −50 % puesta en marcha",
+      "porcentaje": 50,
+      "aplica_a": ["bba_arranque_puesta_en_marcha", "bba_crecimiento_puesta_en_marcha", "bba_escala_puesta_en_marcha"],
+      "usos_maximos": 10,
+      "codigo": "FUNDADORES"
+    }
+  ],
+
+  "enlaces": [
+    {"clave": "diagnostico", "descripcion": "Diagnóstico de automatización (490 €)", "lineas": ["bba_diagnostico"], "codigos_promocionales": false},
+
+    {"clave": "arranque_reserva", "descripcion": "Arranque · Reserva: 50 % de la puesta en marcha", "lineas": ["bba_arranque_setup_50"], "codigos_promocionales": true},
+    {"clave": "arranque_lanzamiento_mensual", "descripcion": "Arranque · Lanzamiento: 50 % restante + cuota mensual", "lineas": ["bba_arranque_mensual", "bba_arranque_setup_50"], "codigos_promocionales": true},
+    {"clave": "arranque_lanzamiento_anual", "descripcion": "Arranque · Lanzamiento: 50 % restante + cuota anual", "lineas": ["bba_arranque_anual", "bba_arranque_setup_50"], "codigos_promocionales": true},
+
+    {"clave": "crecimiento_reserva", "descripcion": "Crecimiento · Reserva: 50 % de la puesta en marcha", "lineas": ["bba_crecimiento_setup_50"], "codigos_promocionales": true},
+    {"clave": "crecimiento_lanzamiento_mensual", "descripcion": "Crecimiento · Lanzamiento: 50 % restante + cuota mensual", "lineas": ["bba_crecimiento_mensual", "bba_crecimiento_setup_50"], "codigos_promocionales": true},
+    {"clave": "crecimiento_lanzamiento_anual", "descripcion": "Crecimiento · Lanzamiento: 50 % restante + cuota anual", "lineas": ["bba_crecimiento_anual", "bba_crecimiento_setup_50"], "codigos_promocionales": true},
+
+    {"clave": "escala_reserva", "descripcion": "Escala · Reserva: 50 % de la puesta en marcha", "lineas": ["bba_escala_setup_50"], "codigos_promocionales": true},
+    {"clave": "escala_lanzamiento_mensual", "descripcion": "Escala · Lanzamiento: 50 % restante + cuota mensual", "lineas": ["bba_escala_mensual", "bba_escala_setup_50"], "codigos_promocionales": true},
+    {"clave": "escala_lanzamiento_anual", "descripcion": "Escala · Lanzamiento: 50 % restante + cuota anual", "lineas": ["bba_escala_anual", "bba_escala_setup_50"], "codigos_promocionales": true}
+  ]
+}
