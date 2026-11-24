@@ -1,0 +1,15 @@
+{
+  "name": "canal-documentales",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "producir": "node herramientas/producir.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "*",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "zod": "^3.24.1"
+  }
+}

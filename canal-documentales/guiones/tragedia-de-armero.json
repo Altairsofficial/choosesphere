@@ -1,0 +1,251 @@
+{
+  "tema": "Tragedia de Armero",
+  "titulo": "Armero: la tragedia que todos vieron venir",
+  "titulos_alternativos": [
+    "El volcán avisó durante un año. Nadie evacuó Armero",
+    "Cómo desapareció un pueblo entero en una noche | Armero 1985",
+    "Armero 1985: la catástrofe que se pudo evitar"
+  ],
+  "miniatura": {
+    "texto": "LO SABÍAN",
+    "subtexto": "ARMERO · 1985"
+  },
+  "etiquetas": [
+    "Armero",
+    "tragedia de Armero",
+    "Nevado del Ruiz",
+    "Omayra Sánchez",
+    "Colombia 1985",
+    "lahar",
+    "volcán",
+    "desastres naturales",
+    "documental",
+    "historia de Colombia"
+  ],
+  "fuentes": [
+    {
+      "titulo": "Tragedia de Armero — Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Tragedia_de_Armero"
+    },
+    {
+      "titulo": "Armero tragedy — Wikipedia (inglés)",
+      "url": "https://en.wikipedia.org/wiki/Armero_tragedy"
+    }
+  ],
+  "verificar": [
+    "Hora de la erupción: la fuente en español da 9:09 p. m.; se narra como 'pasadas las nueve'.",
+    "Cifras de víctimas: más de 20 000 en Armero (de 29 000 habitantes) y más de 23 000 en total."
+  ],
+  "escenas": [
+    {
+      "tipo": "titulo",
+      "capitulo": "Introducción",
+      "texto": "13 de noviembre de 1985",
+      "subtexto": "Armero, Tolima · 11:30 p. m.",
+      "narracion": "Poco antes de las once y media de la noche del 13 de noviembre de 1985, la luz se apagó en Armero. Las radios callaron. Desde la montaña llegó un rugido que nadie supo interpretar. Minutos después, una corriente de agua y barro atravesó las calles con fuerza suficiente para voltear coches y arrastrar personas."
+    },
+    {
+      "tipo": "dato",
+      "cifra": "20 000",
+      "texto": "de sus 29 000 habitantes murieron esa noche",
+      "narracion": "Por la mañana, Armero había desaparecido. Más de veinte mil de sus veintinueve mil habitantes murieron. Y lo más inquietante de esta historia no es la fuerza del volcán. Es que casi todo lo que iba a pasar estaba escrito en un mapa desde hacía semanas."
+    },
+    {
+      "tipo": "mapa",
+      "capitulo": "Un pueblo junto al volcán",
+      "lugar": {
+        "nombre": "Armero",
+        "lat": 4.963,
+        "lon": -74.906
+      },
+      "secundario": {
+        "nombre": "Nevado del Ruiz",
+        "lat": 4.892,
+        "lon": -75.324
+      },
+      "narracion": "Armero era un pueblo próspero del departamento del Tolima, en el centro de Colombia. Vivía del algodón y del arroz, en una llanura fértil a poco menos de cincuenta kilómetros de un gigante dormido: el Nevado del Ruiz.",
+      "referencias": [
+        {
+          "nombre": "Ibagué",
+          "lat": 4.4389,
+          "lon": -75.2322
+        },
+        {
+          "nombre": "Manizales",
+          "lat": 5.0703,
+          "lon": -75.5138
+        }
+      ]
+    },
+    {
+      "tipo": "imagen",
+      "busqueda": "Nevado del Ruiz",
+      "pie": "Nevado del Ruiz",
+      "narracion": "El Ruiz es un volcán cubierto por un glaciar. Llevaba sesenta y nueve años sin erupciones importantes, y para muchos vecinos era simplemente la montaña nevada del horizonte."
+    },
+    {
+      "tipo": "linea_tiempo",
+      "titulo": "El terreno ya lo había advertido",
+      "eventos": [
+        {
+          "hora": "1595",
+          "texto": "Una erupción provoca lahares: 636 muertos"
+        },
+        {
+          "hora": "1845",
+          "texto": "Flujos de lodo: más de 1000 muertos"
+        },
+        {
+          "hora": "1985",
+          "texto": "Armero se levanta sobre los mismos depósitos"
+        }
+      ],
+      "narracion": "Pero el suelo sobre el que se levantaba Armero contaba otra historia. El pueblo estaba construido sobre un abanico de sedimentos dejado por antiguos flujos de lodo. En 1595, una erupción del Ruiz provocó lahares que mataron a seiscientas treinta y seis personas. En 1845, otra avalancha de lodo se cobró más de mil vidas en la misma zona."
+    },
+    {
+      "tipo": "imagen",
+      "capitulo": "Las señales",
+      "busqueda": "Nevado del Ruiz 1985 eruption",
+      "pie": "Actividad del Nevado del Ruiz, 1985",
+      "narracion": "En diciembre de 1984, el volcán despertó. Los organismos vulcanológicos registraron terremotos, emisiones de gases y pequeñas erupciones. Durante casi un año, la montaña dio aviso tras aviso."
+    },
+    {
+      "tipo": "titulo",
+      "texto": "Septiembre de 1985",
+      "subtexto": "Terremotos y erupciones freáticas",
+      "narracion": "En septiembre de 1985, con los temblores y las explosiones de vapor sacudiendo la zona, las autoridades locales empezaron a hablar de evacuación. Los científicos sabían cuál era el peligro principal: no la lava, sino el hielo."
+    },
+    {
+      "tipo": "cita",
+      "texto": "Riesgo de lahares en Mariquita, Guayabal, Chinchiná y Armero.",
+      "autor": "Mapa de riesgo del Nevado del Ruiz, 7 de octubre de 1985",
+      "narracion": "El siete de octubre se terminó un mapa de riesgo del volcán. Señalaba el peligro de caída de ceniza y rocas en varios municipios, y el riesgo de lahares, avalanchas de lodo, en Mariquita, Guayabal, Chinchiná... y Armero."
+    },
+    {
+      "tipo": "dato",
+      "cifra": "5 semanas",
+      "texto": "entre el mapa de riesgo y la tragedia",
+      "narracion": "Faltaban cinco semanas para la tragedia. Pero el mapa apenas se difundió, y su diseño, pensado para ser atractivo, terminó pareciendo más una ilustración que un documento científico. El Congreso llegó a acusar a la Defensa Civil y a los científicos de alarmistas. Y una semana antes de la erupción, la toma del Palacio de Justicia en Bogotá acaparó la atención del país. En Armero, la vida siguió como siempre."
+    },
+    {
+      "tipo": "titulo",
+      "capitulo": "El día de la erupción",
+      "texto": "13 de noviembre de 1985",
+      "subtexto": "3:00 p. m.",
+      "narracion": "El trece de noviembre, hacia las tres de la tarde, columnas de ceniza oscura empezaron a salir del cráter. El director local de la Defensa Civil consultó a Ingeominas, el organismo geológico del país, que determinó que el área debía ser evacuada."
+    },
+    {
+      "tipo": "linea_tiempo",
+      "titulo": "Una tarde de mensajes cruzados",
+      "eventos": [
+        {
+          "hora": "15:00",
+          "texto": "Columnas de ceniza sobre el volcán"
+        },
+        {
+          "hora": "17:00",
+          "texto": "Se reúne el comité de emergencia"
+        },
+        {
+          "hora": "17–19 h",
+          "texto": "Deja de caer ceniza: «mantengan la calma»"
+        },
+        {
+          "hora": "21:09",
+          "texto": "Erupción principal del Nevado del Ruiz"
+        }
+      ],
+      "narracion": "Lo que siguió fue una tarde de llamadas que no llegaban a su destino. Se le indicó que contactara a la Defensa Civil del Tolima y de Bogotá. A las cinco se reunió un comité de emergencia. Pero entre las cinco y las siete la ceniza dejó de caer, y las autoridades locales pidieron a los vecinos que mantuvieran la calma y volvieran a sus casas."
+    },
+    {
+      "tipo": "imagen",
+      "busqueda": "Armero Tolima",
+      "pie": "Armero",
+      "narracion": "Una tormenta dificultaba las comunicaciones. Muchas familias decidieron quedarse en casa, por miedo a que sus viviendas fueran saqueadas si las abandonaban. Un sobreviviente contó que fue a la estación de bomberos y allí le dijeron que la ceniza no era nada."
+    },
+    {
+      "tipo": "titulo",
+      "capitulo": "La noche",
+      "texto": "9:09 p. m.",
+      "subtexto": "Erupción principal",
+      "narracion": "Pasadas las nueve de la noche, el Nevado del Ruiz entró en erupción. Lanzó material a más de treinta kilómetros de altura. En términos volcánicos, no fue una erupción especialmente grande. Pero ocurrió en el peor lugar posible: sobre un glaciar."
+    },
+    {
+      "tipo": "dato",
+      "cifra": "10 %",
+      "texto": "del glaciar se fundió en minutos",
+      "narracion": "Los flujos piroclásticos, nubes de gas y roca ardiente, fundieron cerca del diez por ciento del hielo de la cumbre. El agua se mezcló con ceniza, tierra y rocas, y formó cuatro lahares que bajaron por las laderas a unos sesenta kilómetros por hora."
+    },
+    {
+      "tipo": "mapa",
+      "lugar": {
+        "nombre": "Armero",
+        "lat": 4.963,
+        "lon": -74.906
+      },
+      "secundario": {
+        "nombre": "Nevado del Ruiz",
+        "lat": 4.892,
+        "lon": -75.324
+      },
+      "trayecto": true,
+      "narracion": "Encajonados en los cañones, los lahares ganaron velocidad y siguieron los cauces de los ríos que nacen en el volcán. Uno de ellos, el del río Lagunilla, apuntaba directamente a Armero. Tardó más de dos horas en recorrer la distancia. Tiempo suficiente para evacuar un pueblo entero, si alguien hubiera dado la orden.",
+      "referencias": [
+        {
+          "nombre": "Ibagué",
+          "lat": 4.4389,
+          "lon": -75.2322
+        },
+        {
+          "nombre": "Manizales",
+          "lat": 5.0703,
+          "lon": -75.5138
+        }
+      ]
+    },
+    {
+      "tipo": "cita",
+      "texto": "Se nos vino el agua.",
+      "autor": "Último mensaje de radio atribuido al alcalde de Armero",
+      "narracion": "En una de las conversaciones de radio de aquella noche se escucha al alcalde de Armero gritar: se nos vino el agua. Poco después, la comunicación se cortó."
+    },
+    {
+      "tipo": "imagen",
+      "capitulo": "La mañana siguiente",
+      "busqueda": "Armero ruins",
+      "pie": "Ruinas de Armero",
+      "narracion": "Hacia las once y media llegó el primer frente de lodo. En pocos minutos, casas, calles y personas quedaron sepultadas. Los rescatistas tardaron doce horas en alcanzar el pueblo. El barro hacía casi imposible moverse sin quedar atrapado, y muchos heridos graves murieron antes de que llegara la ayuda."
+    },
+    {
+      "tipo": "dato",
+      "cifra": "+23 000",
+      "texto": "víctimas en total, contando Chinchiná y Villamaría",
+      "narracion": "Sumando las víctimas de otros municipios, como Chinchiná y Villamaría, la cifra superó las veintitrés mil personas. Fue el segundo desastre volcánico más mortífero del siglo veinte, solo por detrás de la erupción del monte Pelée, en 1902."
+    },
+    {
+      "tipo": "titulo",
+      "texto": "Omayra Sánchez",
+      "subtexto": "1972 – 1985",
+      "narracion": "El mundo puso rostro a la tragedia gracias a una niña: Omayra Sánchez. Quedó atrapada entre los escombros de su casa, con el agua al cuello. Durante tres días habló con los rescatistas y con los periodistas que la rodeaban. No hubo forma de liberarla. Una fotografía de Frank Fournier, tomada poco antes de su muerte, dio la vuelta al mundo."
+    },
+    {
+      "tipo": "imagen",
+      "capitulo": "Lo que cambió",
+      "busqueda": "Armero memorial",
+      "pie": "Armero hoy",
+      "narracion": "Armero nunca se reconstruyó. Sus ruinas son hoy un camposanto, un lugar de memoria. Pero la tragedia sí cambió muchas cosas. Colombia creó un sistema nacional para identificar, prevenir y gestionar los riesgos de desastre."
+    },
+    {
+      "tipo": "dato",
+      "cifra": "75 000",
+      "texto": "personas evacuadas antes de la erupción del Pinatubo, 1991",
+      "narracion": "En Estados Unidos, el Servicio Geológico creó un programa de asistencia ante desastres volcánicos. Seis años después, ese equipo ayudó a evacuar a unas setenta y cinco mil personas antes de la erupción del monte Pinatubo, en Filipinas. Muchas de esas vidas se salvaron por lo que se aprendió en Armero."
+    },
+    {
+      "tipo": "titulo",
+      "texto": "Una catástrofe previsible",
+      "subtexto": "Armero, 1985",
+      "narracion": "La tragedia de Armero suele describirse como una catástrofe previsible. El volcán avisó durante un año. Los científicos dibujaron el peligro en un mapa. El lodo tardó dos horas en llegar. Lo que faltó no fue información, sino que alguien la convirtiera a tiempo en una orden: salgan de aquí."
+    }
+  ]
+}

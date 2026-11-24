@@ -1,0 +1,37 @@
+# Lista de temas: un tema por línea. Uso: node herramientas/producir.js lote temas.txt
+# Criterios: interés demostrado (mucha búsqueda, documentales en inglés con millones de visitas),
+# poca oferta de calidad en español y buenas fuentes. Los marcados [sensible] necesitan revisión extra.
+
+# Mundo hispano (menos competencia en español)
+Tragedia de Armero
+Terremoto de Valdivia de 1960
+Desastre aéreo de Los Rodeos
+Explosiones de Guadalajara de 1992
+Accidente del camping de Los Alfaques
+Explosión de San Juanico
+Terremoto de México de 1985
+Tragedia de Vargas
+Pantanada de Tous
+Desastre de Aznalcóllar
+Hundimiento del Prestige
+Incendio del edificio Windsor
+Accidente de la mina San José
+Vuelo 571 de la Fuerza Aérea Uruguaya
+Vuelo Star Dust (misterio de los Andes)
+Erupción del volcán de La Palma de 2021
+Terremoto de Lorca de 2011
+Huracán Mitch
+Accidente del vuelo 5022 de Spanair [sensible]
+Accidente ferroviario de Angrois [sensible]
+
+# Internacionales con mucha demanda
+Desastre de la presa de Vajont
+Vuelo 447 de Air France
+Desastre de Bhopal
+Accidente nuclear de Chernóbil
+Naufragio del Costa Concordia
+Derrumbe del puente Morandi
+Incidente del paso Diátlov
+Explosión del puerto de Beirut de 2020
+Desaparición del vuelo 370 de Malaysia Airlines
+Tsunami del océano Índico de 2004
