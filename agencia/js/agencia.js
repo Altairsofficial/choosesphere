@@ -91,6 +91,14 @@
     if (qp) preselect(qp);
   } catch (err) { /* navegadores antiguos */ }
 
+  // Desde las páginas de sector: /agencia/?sector=clinicas#contacto
+  var SECTOR_FORM = { clinicas: "Clínica / salud", asesorias: "Asesoría / despacho profesional", inmobiliarias: "Inmobiliaria", ecommerce: "E-commerce / retail", academias: "Academia / formación" };
+  try {
+    var qs = new URLSearchParams(window.location.search).get("sector");
+    var sectorSelect = document.getElementById("f-sector");
+    if (qs && sectorSelect && SECTOR_FORM[qs]) sectorSelect.value = SECTOR_FORM[qs];
+  } catch (err) { /* navegadores antiguos */ }
+
   /* ---------------------------------------------------- Calculadora */
   var inputs = {
     people: document.getElementById("roi-people"),
