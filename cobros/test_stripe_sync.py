@@ -215,6 +215,8 @@ class Servicio:
             datos = [o for o in datos if o.get("active") == params["active"]]
         if "code" in params:
             datos = [o for o in datos if o.get("code") == params["code"]]
+        if "product" in params:
+            datos = [o for o in datos if o.get("product") == params["product"]]
         return Lista(datos)
 
 
@@ -255,14 +257,14 @@ def test_cambio_de_importe_rehace_precio_y_enlaces():
     for p in cat2["productos"]:
         for pr in p["precios"]:
             if pr["lookup_key"] == "bba_arranque_mensual":
-                pr["importe"] = 310
+                pr["importe"] = 359
     s = ss.Sincronizador(falso, cat2, log=lambda *_: None)
     urls2 = s.todo()
 
     precios = falso.v1.prices.objs.values()
     vigentes = [o for o in precios if o.get("lookup_key") == "bba_arranque_mensual"]
-    assert len(vigentes) == 1 and vigentes[0]["unit_amount"] == 31000 and vigentes[0]["active"]
-    antiguos = [o for o in precios if o.get("nickname") == "bba_arranque_mensual" and o["unit_amount"] == 29000]
+    assert len(vigentes) == 1 and vigentes[0]["unit_amount"] == 35900 and vigentes[0]["active"]
+    antiguos = [o for o in precios if o.get("nickname") == "bba_arranque_mensual" and o["unit_amount"] == 34900]
     assert antiguos and not antiguos[0]["active"], "el precio antiguo debe quedar archivado"
 
     cambiados = {k for k in urls1 if urls1[k] != urls2[k]}
@@ -305,7 +307,30 @@ def test_catalogo_coincide_con_la_web():
         assert defs[f"bba_{pack}_anual"] == mensual * 10, pack
         assert round(defs[f"bba_{pack}_anual"] / 12) == anual_mes, pack
         assert defs[f"bba_{pack}_setup_50"] * 2 == setup, pack
-    assert defs["bba_diagnostico"] == 490 and "490 €" in html
+    assert defs["bba_diagnostico"] == 590 and "590 €" in html
+    assert cat["impuestos_incluidos"] and "IVA incluido" in html
+
+
+def test_precios_con_iva_incluido():
+    cat = ss.cargar_catalogo()
+    for pid, pr in ss.precios_del_catalogo(cat).values():
+        assert ss.payload_precio(pid, pr, cat["moneda"])["tax_behavior"] == "inclusive", pr["lookup_key"]
+
+
+def test_retira_productos_fuera_del_catalogo():
+    cat = ss.cargar_catalogo()
+    falso = StripeFalso()
+    ss.Sincronizador(falso, cat, log=lambda *_: None).todo()
+    cat2 = copy.deepcopy(cat)
+    cat2["productos"] = [p for p in cat2["productos"] if p["id"] != "bba_extra_canal"]
+    s = ss.Sincronizador(falso, cat2, log=lambda *_: None)
+    s.todo()
+    assert not falso.v1.products.objs["bba_extra_canal"]["active"]
+    assert all(not pr["active"] for pr in falso.v1.prices.objs.values() if pr["product"] == "bba_extra_canal")
+    assert falso.v1.products.objs["bba_extra_uso"]["active"], "los demás productos siguen activos"
+    s3 = ss.Sincronizador(falso, cat2, log=lambda *_: None)
+    s3.todo()
+    assert (s3.creados, s3.actualizados) == (0, 0)
 
 
 if __name__ == "__main__":
