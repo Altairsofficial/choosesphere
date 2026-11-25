@@ -355,6 +355,7 @@ p { margin: 0 0 1em; }
 }
 .billing-switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 .save-tag { font-size: .82rem; font-weight: 700; color: #00806c; background: var(--mint-soft); padding: 5px 10px; border-radius: 999px; }
+.save-tag--neutral { color: var(--text); background: var(--surface); border: 1px solid var(--line); }
 
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
 @media (max-width: 1000px) { .plans { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
@@ -440,7 +441,7 @@ table.compare { width: 100%; border-collapse: collapse; min-width: 680px; font-s
 .addons { margin-top: 56px; }
 .addons > h3 { text-align: center; font-size: 1.5rem; margin-bottom: 6px; }
 .addons > p { text-align: center; color: var(--muted); margin-bottom: 24px; }
-.addon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.addon-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 @media (max-width: 1000px) { .addon-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .addon-grid { grid-template-columns: 1fr; } }
 .addon { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }

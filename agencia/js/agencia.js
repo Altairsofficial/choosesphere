@@ -9,11 +9,11 @@
 (function () {
   "use strict";
 
-  // Packs: única fuente de verdad para la calculadora (mantener en sintonía con el HTML).
+  // Packs (precios con IVA incluido): fuente de la calculadora; deben coincidir con el HTML y cobros/catalogo.json.
   var PLANS = {
-    Arranque: { monthly: 290, setup: 990 },
-    Crecimiento: { monthly: 690, setup: 2900 },
-    Escala: { monthly: 1790, setup: 6900 }
+    Arranque: { monthly: 349, setup: 1190 },
+    Crecimiento: { monthly: 839, setup: 3490 },
+    Escala: { monthly: 2169, setup: 8350 }
   };
   var WEEKS_PER_MONTH = 4.33;
 

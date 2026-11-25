@@ -2,7 +2,7 @@
 """Crea en Stripe todo lo necesario para cobrar los packs de Big Bang Agency.
 
 Lee cobros/catalogo.json y deja en la cuenta de Stripe:
-  - un producto y sus precios por cada pack y extra (precios sin IVA),
+  - un producto y sus precios por cada pack y extra (con IVA incluido o sin él, según el catálogo),
   - el cupón y el código promocional del Programa Fundadores,
   - los enlaces de pago que se envían al cliente (diagnóstico, reserva y lanzamiento de cada pack).
 
@@ -15,6 +15,7 @@ La clave secreta se lee de la variable de entorno STRIPE_SECRET_KEY. Si tu red u
 re-firma TLS, indica su certificado en STRIPE_CA_BUNDLE.
 Es idempotente: si lo ejecutas dos veces no duplica nada. Si cambias un importe en el catálogo,
 crea el precio nuevo, le pasa la lookup_key, archiva el anterior y rehace los enlaces afectados.
+Los productos que salen del catálogo se archivan en Stripe (no se borran).
 Al terminar escribe cobros/enlaces-prueba.json (o enlaces-real.json) con las URL de pago.
 """
 from __future__ import annotations
@@ -51,8 +52,14 @@ def centimos(euros: float) -> int:
 
 
 def precios_del_catalogo(cat: dict) -> dict:
-    """lookup_key -> (id de producto, definición del precio)."""
-    return {pr["lookup_key"]: (p["id"], pr) for p in cat["productos"] for pr in p["precios"]}
+    """lookup_key -> (id de producto, definición del precio). Cada precio lleva si incluye IVA."""
+    incluye = bool(cat.get("impuestos_incluidos"))
+    return {pr["lookup_key"]: (p["id"], {**pr, "_iva_incluido": incluye})
+            for p in cat["productos"] for pr in p["precios"]}
+
+
+def cat_incluye_iva(pr: dict) -> bool:
+    return bool(pr.get("_iva_incluido"))
 
 
 # ----------------------------------------------------------- cuerpos de las peticiones
@@ -70,7 +77,8 @@ def payload_precio(producto_id: str, pr: dict, moneda: str) -> dict:
         "unit_amount": centimos(pr["importe"]),
         "lookup_key": pr["lookup_key"],
         "nickname": pr["lookup_key"],
-        "tax_behavior": "exclusive",  # el IVA, cuando se active, se suma encima
+        # "inclusive": el importe ya lleva el IVA dentro; "exclusive": el IVA se suma encima.
+        "tax_behavior": "inclusive" if cat_incluye_iva(pr) else "exclusive",
         "metadata": dict(MARCA),
     }
     if pr["tipo"] in INTERVALOS:
@@ -119,7 +127,8 @@ def payload_enlace(enlace: dict, cat: dict, id_precio: dict) -> dict:
         "allow_promotion_codes": bool(enlace["codigos_promocionales"]),
         "custom_text": {
             "submit": {
-                "message": f"{enlace['descripcion']}. Al pagar aceptas las condiciones de contratación: {cat['url_condiciones']}"
+                "message": f"{enlace['descripcion']}.{' Precios con IVA incluido.' if cat.get('impuestos_incluidos') else ''} "
+                           f"Al pagar aceptas las condiciones de contratación: {cat['url_condiciones']}"
             }
         },
     }
@@ -179,6 +188,17 @@ class Sincronizador:
             if cambios:
                 self._actualizar("products", p["id"], cambios, p["id"])
 
+    def retirar(self) -> None:
+        """Archiva los productos creados por este script que ya no están en el catálogo, y sus precios."""
+        self.log("Productos retirados")
+        en_catalogo = {p["id"] for p in self.cat["productos"]}
+        for prod in map(_d, self.c.products.list({"active": True, "limit": 100}).auto_paging_iter()):
+            if (prod.get("metadata") or {}).get("bba") != "1" or prod["id"] in en_catalogo:
+                continue
+            for pr in map(_d, self.c.prices.list({"product": prod["id"], "active": True, "limit": 100}).auto_paging_iter()):
+                self._actualizar("prices", pr["id"], {"active": False}, f"{pr.get('lookup_key') or pr['id']} (retirado)")
+            self._actualizar("products", prod["id"], {"active": False}, f"{prod['id']} (retirado)")
+
     # precios ---------------------------------------------------------------
     def precios(self) -> dict:
         """Devuelve lookup_key -> id del precio vigente en Stripe."""
@@ -219,6 +239,7 @@ class Sincronizador:
             and actual.get("currency") == quiero["currency"]
             and intervalo == (quiero.get("recurring") or {}).get("interval")
             and producto == quiero["product"]
+            and actual.get("tax_behavior") in (quiero["tax_behavior"], None)
         )
 
     # cupones ---------------------------------------------------------------
@@ -269,6 +290,7 @@ class Sincronizador:
 
     def todo(self) -> dict:
         self.productos()
+        self.retirar()
         ids = self.precios()
         self.cupones()
         return self.enlaces(ids)

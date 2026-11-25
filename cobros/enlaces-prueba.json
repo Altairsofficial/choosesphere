@@ -1,12 +1,12 @@
 {
-  "diagnostico": "https://buy.stripe.com/test_14A6oI3v11wO1n32WjcEw00",
-  "arranque_reserva": "https://buy.stripe.com/test_14A9AUd5Bdfw8Pv40ncEw01",
-  "arranque_lanzamiento_mensual": "https://buy.stripe.com/test_bJe8wQ4z50sKd5LdAXcEw02",
-  "arranque_lanzamiento_anual": "https://buy.stripe.com/test_7sYeVe7LhdfwfdT2WjcEw03",
-  "crecimiento_reserva": "https://buy.stripe.com/test_28E8wQ6Hd2AS8Pv68vcEw04",
-  "crecimiento_lanzamiento_mensual": "https://buy.stripe.com/test_aFabJ2c1xa3kd5L2WjcEw05",
-  "crecimiento_lanzamiento_anual": "https://buy.stripe.com/test_cNi14o6Hd8Zg5DjeF1cEw06",
-  "escala_reserva": "https://buy.stripe.com/test_14A5kE2qX6R8d5LdAXcEw07",
-  "escala_lanzamiento_mensual": "https://buy.stripe.com/test_aFaeVeaXt6R8e9PdAXcEw08",
-  "escala_lanzamiento_anual": "https://buy.stripe.com/test_9B6cN6aXt8Zg4zfgN9cEw09"
+  "diagnostico": "https://buy.stripe.com/test_7sY14o3v1cbs6Hn7czcEw0a",
+  "arranque_reserva": "https://buy.stripe.com/test_00w5kEaXta3k6HnbsPcEw0b",
+  "arranque_lanzamiento_mensual": "https://buy.stripe.com/test_9B63cw9Tpa3k1n37czcEw0c",
+  "arranque_lanzamiento_anual": "https://buy.stripe.com/test_dRm28s2qXcbsghXeF1cEw0d",
+  "crecimiento_reserva": "https://buy.stripe.com/test_7sYaEY7Lhb7o3vb8gDcEw0e",
+  "crecimiento_lanzamiento_mensual": "https://buy.stripe.com/test_cNi4gA9Tpdfwc1H68vcEw0f",
+  "crecimiento_lanzamiento_anual": "https://buy.stripe.com/test_aFa28s3v1fnEd5L0ObcEw0g",
+  "escala_reserva": "https://buy.stripe.com/test_5kQfZi1mT5N44zfaoLcEw0h",
+  "escala_lanzamiento_mensual": "https://buy.stripe.com/test_cNicN60iPb7o5DjaoLcEw0i",
+  "escala_lanzamiento_anual": "https://buy.stripe.com/test_3cIaEY6HddfwfdT68vcEw0j"
 }
