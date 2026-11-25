@@ -1,0 +1,7 @@
+# Código del servidor, pruebas y cobros: no se sirven como páginas.
+/netlify/*            /agencia/404.html  404!
+/tests/*              /agencia/404.html  404!
+/cobros/*             /agencia/404.html  404!
+/node_modules/*       /agencia/404.html  404!
+/package.json         /agencia/404.html  404!
+/package-lock.json    /agencia/404.html  404!
