@@ -60,4 +60,29 @@
     <lastmod>2026-11-24</lastmod>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://choosesphere.netlify.app/agencia/clinicas.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://choosesphere.netlify.app/agencia/asesorias.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://choosesphere.netlify.app/agencia/inmobiliarias.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://choosesphere.netlify.app/agencia/ecommerce.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://choosesphere.netlify.app/agencia/academias.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
