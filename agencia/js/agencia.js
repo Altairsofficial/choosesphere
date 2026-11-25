@@ -21,7 +21,8 @@
   // "es-ES" no lo hace (1490) por la regla CLDR de agrupación mínima.
   var nf0 = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 });
   var nf1 = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  function eur(n) { return nf0.format(Math.round(n)) + " €"; }
+  var NBSP = "\u00a0"; // espacio que no parte el número de su unidad
+  function eur(n) { return nf0.format(Math.round(n)) + NBSP + "€"; }
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -137,16 +138,18 @@
       ctaPlan = "Diagnóstico";
     } else {
       var payback = plan.setup / net;
-      paybackText = payback > 24 ? "> 24 meses" : nf1.format(Math.max(payback, 0.1)) + " meses";
+      paybackText = payback > 24 ? ">" + NBSP + "24" + NBSP + "meses" : nf1.format(Math.max(payback, 0.1)) + NBSP + "meses";
       planDetail = nf0.format(plan.monthly) + " €/mes + " + nf0.format(plan.setup) + " € de puesta en marcha";
     }
 
-    document.getElementById("res-hours").textContent = nf0.format(Math.round(hoursFreed)) + " h";
+    document.getElementById("res-hours").textContent = nf0.format(Math.round(hoursFreed)) + NBSP + "h";
     document.getElementById("res-saving").textContent = eur(saving);
     document.getElementById("res-payback").textContent = paybackText;
     document.getElementById("res-year").textContent = year1 > 0 ? eur(Math.round(year1 / 10) * 10) : "—";
     document.getElementById("res-plan").textContent = planLabel;
     document.getElementById("res-plan-detail").textContent = planDetail;
+
+    document.querySelectorAll(".kpi-value").forEach(encaja);
 
     var cta = document.getElementById("roi-cta");
     if (cta) cta.setAttribute("data-plan", ctaPlan);
@@ -158,9 +161,20 @@
     }
   }
 
+  // Reduce la letra de una cifra hasta que quepa en su tarjeta (importes grandes en móviles estrechos).
+  // El ancho del texto es proporcional al tamaño de letra, así que basta un único cálculo.
+  function encaja(el) {
+    el.style.fontSize = "";
+    var sobra = el.scrollWidth / el.clientWidth;
+    if (sobra > 1.01) {
+      el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) / sobra) * 0.97 + "px";
+    }
+  }
+
   Object.keys(inputs).forEach(function (k) {
     if (inputs[k]) inputs[k].addEventListener("input", calc);
   });
+  window.addEventListener("resize", calc);
   calc();
 
   /* ---------------------------------------------------- Demo del chat */
